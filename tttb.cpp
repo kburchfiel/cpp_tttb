@@ -599,8 +599,8 @@ bool run_test(Verse_Row &verse_row, std::vector<Test_Result_Row> &trrv,
               long &test_number, long &session_number,
               int &within_session_test_number, const bool allow_quitting,
               // std::vector<Keypress_Processing_Time_Row> &kptrv,
-              const std::string &within_test_update_message, 
-              const std::string& post_entry_message)
+              const std::string &within_test_update_message,
+              const std::string &post_entry_message)
 /* This function allows the player to complete a single typing test.
 It then updates the verse_row, trrv, and wrrv vectors with the results
 of that test.
@@ -1035,7 +1035,7 @@ the space bar to begin the typing test and 'e' to cancel it."
       */
 
       Term::cout << cursor_reposition_code << "\033[J" << print_color_code
-                 << user_string << default_output_color_code 
+                 << user_string << default_output_color_code
                  << post_entry_message << std::endl;
 
       auto processing_end_time = std::chrono::high_resolution_clock::now();
@@ -1999,62 +1999,65 @@ this rare accomplishment!"
     // Calculating various within-session statistics that will
     // be shown to the user shortly:
 
-    std::string post_entry_message = ""; // This message will be 
+    std::string post_entry_message = ""; // This message will be
     // replaced with a brief stats update when marathon mode is
     // active; otherwise, it will be kept as an empty string.
 
-      // Calculating the player's average WPM across (1) all races
-      // completed this session and (2) the last 10 races:
+    // Calculating the player's average WPM across (1) all races
+    // completed this session and (2) the last 10 races:
 
-      double last_10_wpm_sum = 0;
-      double session_wpm_sum = 0;
-      double session_wpm_mean = 0;
-      double last_10_wpm_mean = 0;
+    double last_10_wpm_sum = 0;
+    double session_wpm_sum = 0;
+    double session_wpm_mean = 0;
+    double last_10_wpm_mean = 0;
 
-      if (within_session_test_number >= 2) {
-        for (int i = 0; i < within_session_test_number; ++i) {
-          session_wpm_sum += session_wpm_results[i];
-          // Checking whether at least 10 races have been completed
-          // thus far
-          if (within_session_test_number >= 10) {
-            // Determining whether i is currently accessing one of the
-            // last 10 races completed by the user
-            if (i >= (within_session_test_number - 10)) {
-              last_10_wpm_sum += session_wpm_results[i];
-            }
+    if (within_session_test_number >= 2) {
+      for (int i = 0; i < within_session_test_number; ++i) {
+        session_wpm_sum += session_wpm_results[i];
+        // Checking whether at least 10 races have been completed
+        // thus far
+        if (within_session_test_number >= 10) {
+          // Determining whether i is currently accessing one of the
+          // last 10 races completed by the user
+          if (i >= (within_session_test_number - 10)) {
+            last_10_wpm_sum += session_wpm_results[i];
           }
         }
-        session_wpm_mean = (session_wpm_sum / within_session_test_number);
-        last_10_wpm_mean = last_10_wpm_sum / 10;
       }
-
-
-    if (marathon_mode & (within_session_test_number >= 1)) 
-    {
-    // Creating a short stats update that can be displayed after a 
-      // player's response when marathon mode is active:
-      // (That way, the player will still be able to keep track of his/her
-      // progress, as other update messages will be skipped within 
-      // this mode.)
-    // (More information will be added to this message 
-    // as more tests get completed.)
-      {post_entry_message = "\n\nStats for last verse (" + trrv.back().verse_code +
-      "): WPM: " + std::to_string(trrv.back().wpm) + "; E&B rate: " 
-      + std::to_string(trrv.back().error_and_backspace_rate) + "\n";}
-
-        if (within_session_test_number >= 2)
-      {post_entry_message += "Within-session stats: Characters: " + 
-          std::to_string(characters_typed_during_current_session) 
-        + "; Verses: " + std::to_string(within_session_test_number) 
-        + "; Mean WPM: " + std::to_string(session_wpm_mean);}
-
-        if (within_session_test_number >= 10)
-        {post_entry_message += ";\nMean WPM for last 10 tests: " + std::to_string(
-        last_10_wpm_mean);}  
+      session_wpm_mean = (session_wpm_sum / within_session_test_number);
+      last_10_wpm_mean = last_10_wpm_sum / 10;
     }
 
+    if (marathon_mode & (within_session_test_number >= 1)) {
+      // Creating a short stats update that can be displayed after a
+      // player's response when marathon mode is active:
+      // (That way, the player will still be able to keep track of his/her
+      // progress, as other update messages will be skipped within
+      // this mode.)
+      // (More information will be added to this message
+      // as more tests get completed.)
+      {
+        post_entry_message =
+            "\n\nStats for last verse (" + trrv.back().verse_code +
+            "): WPM: " + std::to_string(trrv.back().wpm) + "; E&B rate: " +
+            std::to_string(trrv.back().error_and_backspace_rate) + "\n";
+      }
 
-    else // Specifying what messages to display if marathon 
+      if (within_session_test_number >= 2) {
+        post_entry_message +=
+            "Within-session stats: Characters: " +
+            std::to_string(characters_typed_during_current_session) +
+            "; Verses: " + std::to_string(within_session_test_number) +
+            "; Mean WPM: " + std::to_string(session_wpm_mean);
+      }
+
+      if (within_session_test_number >= 10) {
+        post_entry_message += ";\nMean WPM for last 10 tests: " +
+                              std::to_string(last_10_wpm_mean);
+      }
+    }
+
+    else // Specifying what messages to display if marathon
     // mode is *not* active--and prompting the user to select a game mode
     {
 
@@ -2087,8 +2090,7 @@ including backspaces) and " +
             " (including backspaces).\n";
       }
 
-      if (within_session_test_number >= 2)
-      {
+      if (within_session_test_number >= 2) {
         progress_message +=
             "You have typed " +
             std::to_string(characters_typed_during_current_session) +
@@ -2096,9 +2098,8 @@ including backspaces) and " +
 so far this session. Your mean WPM over the " +
             std::to_string(within_session_test_number) +
             " tests you have completed this session is " +
-            std::to_string(session_wpm_mean) + ".\n";        };
-
-
+            std::to_string(session_wpm_mean) + ".\n";
+      };
 
       if (within_session_test_number >= 10) {
         progress_message += "Your mean WPM over your last 10 \
@@ -2132,8 +2133,6 @@ Press 'h' for descriptions of these options."
             {"n", "c", "i", "r", "m", "s", "u", "e", "N", "C", "I", "h"});
       }
     }
-
-
 
     // Instructing the game to show progress messages within
     // run_test rather than this loop if N or C was requested:
@@ -2805,7 +2804,7 @@ continue. (The test won't start just yet.)"
           // has successfully completed a test.
           std::string within_test_update_message = "";
           std::string post_entry_message = ""; // No post-entry message
-          // is necessary within multiplayer games, as such messages are 
+          // is necessary within multiplayer games, as such messages are
           // only shown within the two single-player marathon modes.
 
           completed_test = run_test(
@@ -3220,7 +3219,9 @@ int main() {
   std::string py_complement_name = "";
 #ifdef _WIN32 // From
   // https://www.geeksforgeeks.org/cpp/writing-os-independent-code-cc/
-  { py_complement_name = "tttb_py_complement.exe"; }
+  {
+    py_complement_name = "tttb_py_complement.exe";
+  }
 #else
   {
     py_complement_name = "./tttb_py_complement";
