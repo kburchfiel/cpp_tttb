@@ -1,4 +1,4 @@
-# Type Through the Bible (C++ Edition) [Version 1.0.1]
+# Type Through the Bible (C++ Edition) 
 **A Typing Game of Biblical Proportions**
 
 By Ken Burchfiel
@@ -12,6 +12,11 @@ Released under the MIT License
 [Link to gameplay demo video](https://youtu.be/ZrADleJG3SA)
 
 ![](Screenshots/Genesis_1_new_menu.png)
+
+Latest versions:
+
+C++ code: 1.02
+Complementary Python code: 1.01
 
 ## Introduction
 
@@ -127,8 +132,8 @@ To launch single-player games, press 's' within the welcome screen. You'll then 
 * **C**: Automatically get directed to the next verse.
 * **I**: Select a verse from which to begin, then 
 automatically get directed to the verses that follow it.
-* **M**: Enter 'untyped marathon mode,' in which you will immediately start a test for the next untyped verse after finishing the current test. (This option, along with 'S', can get pretty exhausting--so consider trying it out only for short periods.)
-* **S**: Enter 'sequential marathon mode,' in which you will immediately start (1) the verse following the one you just typed or (2) (when starting this mode) a verse of your choice.
+* **m**: Enter 'untyped marathon mode,' in which you will immediately start a test for the next untyped verse after finishing the current test. (This option, along with 'S', can get pretty exhausting--so consider trying it out only for short periods. Also note that, in the stats that appear under your entry within all marathon modes, 'E&B' stands for 'error and backspace rate'. See 'Understanding error rates' section below for more information.)
+* **s**: Enter 'sequential marathon mode,' in which you will immediately start (1) the verse following the one you just typed or (2) (when starting this mode) a verse of your choice.
 * **U**: Update game configuration settings.
 * **C**: Exit this session and save your progress.
 

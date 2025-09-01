@@ -1327,21 +1327,21 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 1326,OT,Genesis,1,44,2,Genesis_44:2,"But place my silver bowl, and the price that he gave for the wheat, in the mouth of the sack of the youngest."" And so it was done.",130,1,101.827479
 1327,OT,Genesis,1,44,3,Genesis_44:3,"And when morning arose, they were sent away with their donkeys.",63,1,135.648298
 1328,OT,Genesis,1,44,4,Genesis_44:4,"And now they had departed from the city and had set out a short distance. Then Joseph, sending for the steward of his house, said: ""Rise up and pursue the men. And when you have overtaken them, say: 'Why have you returned evil for good?",236,1,116.203402
-1329,OT,Genesis,1,44,5,Genesis_44:5,"The cup that you have stolen, it is that from which my lord drinks, and in which he is accustomed to discern signs. You have done a very sinful thing.' """,153,0,0.000000
-1330,OT,Genesis,1,44,6,Genesis_44:6,"He did as he had been ordered. And having overtaken them, he spoke to them according to the order.",98,0,0.000000
-1331,OT,Genesis,1,44,7,Genesis_44:7,"And they responded: ""Why does our lord speak in this way, as though your servants had committed such a shameful act?",116,0,0.000000
-1332,OT,Genesis,1,44,8,Genesis_44:8,"The money, which we found at the top of our sacks, we carried back to you from the land of Canaan. So in what way does it follow that we would steal, from the house of your lord, gold or silver?",194,0,0.000000
-1333,OT,Genesis,1,44,9,Genesis_44:9,"Whichever of your servants will be found to have what you seek, may he die, and we shall be the servants of my lord.""",117,0,0.000000
-1334,OT,Genesis,1,44,10,Genesis_44:10,"And he said to them: ""Let it be according to your verdict. With whomever it will be found, let him be my servant, but you will be unharmed.""",140,0,0.000000
-1335,OT,Genesis,1,44,11,Genesis_44:11,"And so, they quickly placed their sacks down to the ground, and each one was opened.",84,0,0.000000
-1336,OT,Genesis,1,44,12,Genesis_44:12,"And when he had searched, beginning with the oldest, all the way to the youngest, he found the cup in Benjamin's sack.",118,0,0.000000
-1337,OT,Genesis,1,44,13,Genesis_44:13,"But they, tearing their garments and burdening their donkeys again, returned to the town.",89,0,0.000000
-1338,OT,Genesis,1,44,14,Genesis_44:14,"And Judah, first among his brothers, entered to Joseph (for he had not yet departed from the place) and together they all fell down before him to the ground.",157,0,0.000000
-1339,OT,Genesis,1,44,15,Genesis_44:15,"And he said to them: ""Why would you choose to act in this way? Could you be ignorant that there is no one like me in the knowledge of discerning signs?""",152,0,0.000000
-1340,OT,Genesis,1,44,16,Genesis_44:16,"And Judah said to him, ""What could we answer to my lord? And what would we be able to say, or to justly claim? God has discovered the iniquity of your servants. See, we have all become servants to my lord, both we, and he with whom the cup was found.""",251,0,0.000000
-1341,OT,Genesis,1,44,17,Genesis_44:17,"Joseph responded: ""Far be it from me that I should act in this way. He who stole the cup, he will be my servant. But you may go away free to your father.""",154,0,0.000000
-1342,OT,Genesis,1,44,18,Genesis_44:18,"Then Judah, approaching closer, said confidently: ""I beg you, my lord, let your servant speak a word in your ears, and do not be angry with your servant. For you are next to Pharaoh.",182,0,0.000000
-1343,OT,Genesis,1,44,19,Genesis_44:19,"My lord, you questioned your servants before: 'Do you have a father or a brother?'",82,0,0.000000
+1329,OT,Genesis,1,44,5,Genesis_44:5,"The cup that you have stolen, it is that from which my lord drinks, and in which he is accustomed to discern signs. You have done a very sinful thing.' """,153,1,107.545627
+1330,OT,Genesis,1,44,6,Genesis_44:6,"He did as he had been ordered. And having overtaken them, he spoke to them according to the order.",98,1,133.034818
+1331,OT,Genesis,1,44,7,Genesis_44:7,"And they responded: ""Why does our lord speak in this way, as though your servants had committed such a shameful act?",116,1,121.930047
+1332,OT,Genesis,1,44,8,Genesis_44:8,"The money, which we found at the top of our sacks, we carried back to you from the land of Canaan. So in what way does it follow that we would steal, from the house of your lord, gold or silver?",194,1,105.135368
+1333,OT,Genesis,1,44,9,Genesis_44:9,"Whichever of your servants will be found to have what you seek, may he die, and we shall be the servants of my lord.""",117,1,112.297572
+1334,OT,Genesis,1,44,10,Genesis_44:10,"And he said to them: ""Let it be according to your verdict. With whomever it will be found, let him be my servant, but you will be unharmed.""",140,1,110.960953
+1335,OT,Genesis,1,44,11,Genesis_44:11,"And so, they quickly placed their sacks down to the ground, and each one was opened.",84,1,128.340655
+1336,OT,Genesis,1,44,12,Genesis_44:12,"And when he had searched, beginning with the oldest, all the way to the youngest, he found the cup in Benjamin's sack.",118,1,119.931782
+1337,OT,Genesis,1,44,13,Genesis_44:13,"But they, tearing their garments and burdening their donkeys again, returned to the town.",89,1,90.399513
+1338,OT,Genesis,1,44,14,Genesis_44:14,"And Judah, first among his brothers, entered to Joseph (for he had not yet departed from the place) and together they all fell down before him to the ground.",157,1,120.116763
+1339,OT,Genesis,1,44,15,Genesis_44:15,"And he said to them: ""Why would you choose to act in this way? Could you be ignorant that there is no one like me in the knowledge of discerning signs?""",152,1,112.344099
+1340,OT,Genesis,1,44,16,Genesis_44:16,"And Judah said to him, ""What could we answer to my lord? And what would we be able to say, or to justly claim? God has discovered the iniquity of your servants. See, we have all become servants to my lord, both we, and he with whom the cup was found.""",251,1,110.354859
+1341,OT,Genesis,1,44,17,Genesis_44:17,"Joseph responded: ""Far be it from me that I should act in this way. He who stole the cup, he will be my servant. But you may go away free to your father.""",154,1,129.006033
+1342,OT,Genesis,1,44,18,Genesis_44:18,"Then Judah, approaching closer, said confidently: ""I beg you, my lord, let your servant speak a word in your ears, and do not be angry with your servant. For you are next to Pharaoh.",182,1,122.052446
+1343,OT,Genesis,1,44,19,Genesis_44:19,"My lord, you questioned your servants before: 'Do you have a father or a brother?'",82,1,96.996854
 1344,OT,Genesis,1,44,20,Genesis_44:20,"And we answered you, my lord: 'There is our father, an old man, and a young boy, who was born in his old age. His brother of the same womb has died, and he alone is left to his mother and father, who truly love him tenderly.'",225,0,0.000000
 1345,OT,Genesis,1,44,21,Genesis_44:21,"And you said to your servants, 'Bring him to me, and I will set my eyes on him.'",80,0,0.000000
 1346,OT,Genesis,1,44,22,Genesis_44:22,"We suggested to my lord: 'The boy is not able to leave his father. For if he sends him away, he will die.'",106,0,0.000000
@@ -5553,8 +5553,8 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 5552,OT,Deuteronomy,5,25,10,Deuteronomy_25:10,And his name shall be called in Israel: The House of the Unshod.,64,0,0.000000
 5553,OT,Deuteronomy,5,25,11,Deuteronomy_25:11,"If two men have a conflict between themselves, and one begins to do violence to the other, and if the other's wife, wanting to rescue her husband from the hand of the stronger one, extends her hand and grasps him by his private parts,",234,0,0.000000
 5554,OT,Deuteronomy,5,25,12,Deuteronomy_25:12,then you shall cut off her hand. Neither shall you weep over her with any mercy.,80,0,0.000000
-5555,OT,Deuteronomy,5,25,13,Deuteronomy_25:13,"You shall not have differing weights, greater and lesser, in your bag.",70,0,0.000000
-5556,OT,Deuteronomy,5,25,14,Deuteronomy_25:14,Neither shall there be in your house a greater and a lesser measure.,68,0,0.000000
+5555,OT,Deuteronomy,5,25,13,Deuteronomy_25:13,"You shall not have differing weights, greater and lesser, in your bag.",70,1,116.705047
+5556,OT,Deuteronomy,5,25,14,Deuteronomy_25:14,Neither shall there be in your house a greater and a lesser measure.,68,1,152.144936
 5557,OT,Deuteronomy,5,25,15,Deuteronomy_25:15,"You shall have a just and a true weight, and your measure shall be equal and true, so that you may live for a long time upon the land, which the Lord your God will give to you.",176,0,0.000000
 5558,OT,Deuteronomy,5,25,16,Deuteronomy_25:16,"For the Lord your God abominates him who does these things, and he loathes all injustice.",89,0,0.000000
 5559,OT,Deuteronomy,5,25,17,Deuteronomy_25:17,"Remember what Amalek did to you, along the way, when you were departing from Egypt:",83,0,0.000000
