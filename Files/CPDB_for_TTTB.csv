@@ -1342,7 +1342,7 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 1341,OT,Genesis,1,44,17,Genesis_44:17,"Joseph responded: ""Far be it from me that I should act in this way. He who stole the cup, he will be my servant. But you may go away free to your father.""",154,1,129.006033
 1342,OT,Genesis,1,44,18,Genesis_44:18,"Then Judah, approaching closer, said confidently: ""I beg you, my lord, let your servant speak a word in your ears, and do not be angry with your servant. For you are next to Pharaoh.",182,1,122.052446
 1343,OT,Genesis,1,44,19,Genesis_44:19,"My lord, you questioned your servants before: 'Do you have a father or a brother?'",82,1,96.996854
-1344,OT,Genesis,1,44,20,Genesis_44:20,"And we answered you, my lord: 'There is our father, an old man, and a young boy, who was born in his old age. His brother of the same womb has died, and he alone is left to his mother and father, who truly love him tenderly.'",225,0,0.000000
+1344,OT,Genesis,1,44,20,Genesis_44:20,"And we answered you, my lord: 'There is our father, an old man, and a young boy, who was born in his old age. His brother of the same womb has died, and he alone is left to his mother and father, who truly love him tenderly.'",225,1,111.905885
 1345,OT,Genesis,1,44,21,Genesis_44:21,"And you said to your servants, 'Bring him to me, and I will set my eyes on him.'",80,0,0.000000
 1346,OT,Genesis,1,44,22,Genesis_44:22,"We suggested to my lord: 'The boy is not able to leave his father. For if he sends him away, he will die.'",106,0,0.000000
 1347,OT,Genesis,1,44,23,Genesis_44:23,"And you said to your servants: 'Unless your youngest brother arrives with you, you will not see my face any more.'",114,0,0.000000

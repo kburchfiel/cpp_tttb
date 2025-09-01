@@ -360,9 +360,9 @@ b. `conda create -n tttb_analysis python pandas numpy plotly pyinstaller`
 
 c. `conda activate tttb_analysis`
 
-[Navigating to the location of the Git clone: (Replace this path with the path to your own Type Through the Bible root folder (which may differ from this one)].
+[Navigating to the location of the Git clone's build folder: (Replace this path with the path to your own Type Through the Bible build folder.].
 
-d. `cd C:\Users\kburc\Downloads\cpp_tttb\build`
+d. `cd '/home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/cpp_tttb/build'`
 
 [Running pyinstaller:]
 
@@ -372,5 +372,15 @@ e. `pyinstaller tttb_py_complement.py`
 10. Navigate up to the main cpp_tttb folder (e.g. via `cd ..` in your terminal, assuming you're still in the build folder) and run `python create_release_folder.py neither`. This will create a new copy of TTTB with blank output files rather than the existing files within the TTTB directory.
 
 *Note*: The create_release_folder.py file also contains code that can help automate the process of building and (where necessary) moving your C++ and Python executables. (For instance, you can pass `both` as a corresponding argument to the file rather than `neither`, the default, in order to compile the executables. See the source code for more documentation and details.) However, I strongly recommend performing these steps outside of this file the first time around so that you can more easily identify and debug any issues. Also note that, if you set 'both' or 'py' as your argument, you'll want to call this script within the Python environment that you want to use for Pyinstaller.)
+
+If you do want to try compiling both the C++ and Python executables via the 'create_release_folder.py' script, first complete steps a, b, and c in the above list. Next:
+
+d. Navigate to TTTB's root folder via the following command: (Make sure to replace the path shown with the path to your own copy of TTTB. Note that the root folder won't necessarily be named 'cpp_tttb.')
+
+`cd '/home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/cpp_tttb'`
+
+e. Execute the following command:
+
+`python create_release_folder.py both`
 
 11. Try launching the TTTB executable--if it works, congratulations! If not, double-check the steps and/or reach out to me with any questions.
