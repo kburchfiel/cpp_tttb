@@ -1950,15 +1950,15 @@ verse has the ID "
                << earliest_untyped_verse_index + 1 << "." << std::endl;
 
     Term::cout << typed_characters << " unique characters from the \
-Bible have been typed, which represents "
+Bible have been typed, representing "
                << 100 * (typed_characters / total_characters)
                << " % of the Bible." << std::endl;
   }
 
   else {
     Term::cout << "All verses have been typed! Congratulations on \
-this rare accomplishment!"
-               << std::endl;
+this rare accomplishment! And thanks so much for playing. \
+--Ken Burchfiel" << std::endl;
   }
 
   int previously_typed_verse_index = -1; // I chose to initialize
@@ -3247,7 +3247,7 @@ int main() {
                       background_color_suffix;
   }
   Term::cout << std::endl
-             << "Welcome to Version 1.02 of \
+             << "Welcome to Version 1.03 of \
 Type Through the Bible (C++ Edition)!\nPlease review the README.pdf \
 file for important gameplay instructions."
              << std::endl;

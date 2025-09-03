@@ -22,7 +22,7 @@
 
 import time
 start_time = time.time()
-print("Starting Version 1.01 of tttb_py_complement script. It may \
+print("Starting Version 1.02 of tttb_py_complement script. It may \
 take a little while to run; please be patient.")
 import os
 import subprocess
@@ -588,6 +588,7 @@ if category == 'spv':
         'Local_Test_Start_Time').reset_index(drop=True).copy()
     df_tr['Chronological test number'] = df_tr.index+1
     df_tr['Count'] = 1
+    df_tr['Book'] = df_tr['Verse_Code'].str.split('_').str[0]
 
 
 # Adding chronological session numbers to DataFrame:
@@ -869,13 +870,61 @@ if category == 'spv':
 WPM_by_{tag.lower()}.html', include_plotlyjs = 'cdn')
 
 
+# ## Average WPM and Accuracy by Book:
+
+# In[33]:
+
+
+if category == 'spv': 
+    df_wpm_by_book = df_tr.pivot_table(
+    index = 'Book', values = ['WPM', 'Error_and_Backspace_Rate', 
+    'Chronological test number'],
+    aggfunc = {'WPM':'mean', 
+    'Chronological test number':'count',
+    'Error_and_Backspace_Rate':'mean'}).reset_index().query(
+"`Chronological test number` >= 10").sort_values(
+    'WPM', ascending = False).rename(columns = {
+'Chronological test number':'Tests', 'Error_and_Backspace_Rate':'Error & Backspace Rate'})
+
+
+# In[34]:
+
+
+if category == 'spv':
+    if len(df_wpm_by_book) > 0:
+        fig_wpm_by_book = px.bar(df_wpm_by_book, x = 'Book', y = 'WPM',
+        title = 'Books of the Bible With at Least 10 Test Results \
+    by Mean WPM', text_auto = '.3f',
+        color = 'Tests', hover_data = ['Error & Backspace Rate'])
+        fig_wpm_by_book.write_html(
+        f'{sp_visualizations_folder}wpm_by_book.html', 
+        include_plotlyjs = 'cdn')
+
+
+
+# In[35]:
+
+
+if category == 'spv':
+    if len(df_wpm_by_book) > 0:
+        fig_accuracy_by_book = px.bar(df_wpm_by_book, x = 'Book', 
+        y = 'Error & Backspace Rate',
+        title = 'Books of the Bible With at Least 10 Test Results<br> \
+    by Mean Error & Backspace Rate', text_auto = '.3f',
+        color = 'Tests', hover_data = ['WPM'])
+        fig_accuracy_by_book.write_html(
+        f'{sp_visualizations_folder}accuracy_by_book.html', 
+        include_plotlyjs = 'cdn')
+
+
+
 # ### Creating endurance-related charts:
 
 # #### Visualizing *rolling* endurance statistics:
 # 
 # (I commented out the following visualization code because it relies on a very inefficient set of code that I have also commented out.)
 
-# In[33]:
+# In[36]:
 
 
 # for col in [pair[0] for pair in col_seconds_pair_list]:
@@ -897,7 +946,7 @@ WPM_by_{tag.lower()}.html', include_plotlyjs = 'cdn')
 
 # #### Visualizing clock-based endurance statistics:
 
-# In[34]:
+# In[37]:
 
 
 if category == 'spv':
@@ -927,7 +976,7 @@ clock_'+time_category.replace(' ', '_').lower()+'.html',
         include_plotlyjs = 'cdn')
 
 
-# In[35]:
+# In[38]:
 
 
 if category == 'spv':
@@ -938,7 +987,7 @@ if category == 'spv':
     df_yyyy_mm_stats
 
 
-# In[36]:
+# In[39]:
 
 
 if category == 'spv':
@@ -953,7 +1002,7 @@ if category == 'spv':
 typed_by_year_and_month.html', include_plotlyjs = 'cdn')
 
 
-# In[37]:
+# In[40]:
 
 
 if category == 'spv':
@@ -969,7 +1018,7 @@ if category == 'spv':
 typed_by_year_and_month.html', include_plotlyjs = 'cdn')
 
 
-# In[38]:
+# In[41]:
 
 
 if category == 'spv':
@@ -985,7 +1034,7 @@ year_and_month.html', include_plotlyjs = 'cdn')
 
 # Graphing keypresses by date (in both chronological and ranked order):
 
-# In[39]:
+# In[42]:
 
 
 if category == 'spv':
@@ -1006,7 +1055,7 @@ if category == 'spv':
 _typed_by_date.html', include_plotlyjs='cdn')
 
 
-# In[40]:
+# In[43]:
 
 
 if category == 'spv':
@@ -1024,7 +1073,7 @@ if category == 'spv':
 
 # ### Calculating mean WPM by within-session test numbers:
 
-# In[41]:
+# In[44]:
 
 
 if category == 'spv':
@@ -1038,7 +1087,7 @@ if category == 'spv':
     df_mean_wpm_by_within_session_test_number
 
 
-# In[42]:
+# In[45]:
 
 
 if category == 'spv':
@@ -1055,7 +1104,7 @@ session_test_number.html',
     #fig_mean_wpm_by_within_session_test_number
 
 
-# In[43]:
+# In[46]:
 
 
 if category == 'spv':
@@ -1077,7 +1126,7 @@ test_number.html',
 
 # ### Accuracy analyses:
 
-# In[44]:
+# In[47]:
 
 
 if category == 'spv':
@@ -1091,7 +1140,7 @@ if category == 'spv':
 # 
 # (The `duplicates = drop` component prevents the code from raising an error if two or more bins have the same group (which can happen, for instance, if error-free races account for a large percentage of your overall races).
 
-# In[45]:
+# In[48]:
 
 
 if category == 'spv':
@@ -1107,7 +1156,7 @@ if category == 'spv':
 # 
 # (Note that using DataFrameGroupBy (https://pandas.pydata.org/docs/dev/reference/api/pandas.core.groupby.DataFrameGroupBy.rolling.html) reorders the dataset and thus won't be an ideal method.)
 
-# In[46]:
+# In[49]:
 
 
 if category == 'spv':
@@ -1129,7 +1178,7 @@ Rate Bin').update_layout(
 by_accuracy_bin.html', include_plotlyjs = 'cdn')
 
 
-# In[47]:
+# In[50]:
 
 
 if category == 'spv':
@@ -1150,9 +1199,101 @@ if category == 'spv':
     include_plotlyjs = 'cdn')
 
 
+# Calculating rolling and cumulative accuracy results:
+
+# In[51]:
+
+
+if category == 'spv': 
+    for period in [10, 50, 100, 1000]:
+        #print(period)
+        df_tr[f'Rolling {period}-Test Mean Error & Backspace \
+Rate'] = df_tr['Error_and_Backspace_Rate'].rolling(window=period).mean()
+    df_tr['Cumulative Mean Error & Backspace Rate'] = df_tr['Error_and_Backspace_Rate'].cumsum(
+    ) / df_tr['Count'].cumsum()
+
+
+# In[52]:
+
+
+if category == 'spv': 
+    fig_accuracy_by_test = px.line(
+        df_tr.rename(
+        columns = {'Error_and_Backspace_Rate':'Error & Backspace Rate'}), 
+        x = 'Chronological test number', y = [
+'Error & Backspace Rate', 
+'Rolling 10-Test Mean Error & Backspace Rate', 
+'Rolling 50-Test Mean Error & Backspace Rate', 
+'Rolling 100-Test Mean Error & Backspace Rate', 
+'Rolling 1000-Test Mean Error & Backspace Rate', 
+'Cumulative Mean Error & Backspace Rate'],
+    title = 'Error & Backspace Rate by Chronological Test Number').update_layout(
+        legend_title = 'Metric', yaxis_title = 'Error & Backspace Rate', 
+        xaxis_title = 'Chronological Test Number')
+    fig_accuracy_by_test.write_html(
+        f'{sp_visualizations_folder}error_and_backspace_rate_by_race.html',
+        include_plotlyjs = 'cdn')
+
+
+# In[53]:
+
+
+if category == 'spv':
+    fig_accuracy_by_session_num_comparison = px.line(df_tr.query(
+    "Within_Session_Test_Number.notna()"),
+            x = 'Within_Session_Test_Number', 
+            y = 'Error_and_Backspace_Rate',
+           color = 'Session_Number', 
+            title = "Error & Backspace Rate by Session Number and \
+Within-Session Test Number").update_traces(
+        mode = 'markers+lines').update_layout(showlegend = True,
+        xaxis_title = 'Within-Session Test Number',
+        yaxis_title = 'Error & Backspace Rate').update_layout(
+    legend_title = 'Session Number')
+    fig_accuracy_by_session_num_comparison.write_html(
+        f'{sp_visualizations_folder}Error_and_Backspace_Rate_by_within_session_\
+test_number.html', 
+        include_plotlyjs='cdn')
+    # fig_accuracy_by_session_num_comparison
+
+
+# In[54]:
+
+
+if category == 'spv':
+    df_mean_accuracy_by_within_session_test_number = df_tr.pivot_table(
+        index = 'Within_Session_Test_Number',
+                      values = ['Error_and_Backspace_Rate', 
+'Chronological test number'], 
+        aggfunc = {'Error_and_Backspace_Rate':'mean', 
+        'Chronological test number':'count'}
+    ).reset_index().rename(
+        columns = {'Chronological test number':'Number of tests'})
+    df_mean_accuracy_by_within_session_test_number
+
+
+# In[55]:
+
+
+if category == 'spv':
+    fig_mean_accuracy_by_within_session_test_number = px.line(
+        df_mean_accuracy_by_within_session_test_number,
+        x = 'Within_Session_Test_Number', y = 'Error_and_Backspace_Rate',
+        title = 'Mean Error & Backspace Rate \
+by Within-Session Test Number',
+        hover_data = 'Number of tests').update_layout(
+        xaxis_title = 'Within-Session Test Number',
+    yaxis_title = 'Error & Backspace Rate')
+    fig_mean_accuracy_by_within_session_test_number.write_html(
+        f'{sp_visualizations_folder}mean_error_and_backspace_rate_\
+by_within_session_test_number.html', 
+        include_plotlyjs='cdn')
+    #fig_mean_accuracy_by_within_session_test_number
+
+
 # ### Analyzing word-level results:
 
-# In[48]:
+# In[56]:
 
 
 if category == 'spv':
@@ -1163,7 +1304,7 @@ if category == 'spv':
 
 # Creating a table of words typed at least 10 times by average WPM:
 
-# In[49]:
+# In[57]:
 
 
 if category == 'spv':
@@ -1180,7 +1321,7 @@ if category == 'spv':
     df_mean_wpm_by_word
 
 
-# In[50]:
+# In[58]:
 
 
 if category == 'spv':
@@ -1194,7 +1335,7 @@ Typed at Least 10 Times')
     include_plotlyjs = 'cdn')
 
 
-# In[51]:
+# In[59]:
 
 
 if category == 'spv':
@@ -1210,7 +1351,7 @@ Typed at Least 10 Times')
 
 # Analyzing word-level accuracy data:
 
-# In[52]:
+# In[60]:
 
 
 if category == 'spv': 
@@ -1226,7 +1367,7 @@ if category == 'spv':
 
 # Sorting words typed at least 10 times by error-free rate and count, then creating a graph of the top 100 words in this list:
 
-# In[53]:
+# In[61]:
 
 
 if category == 'spv':
@@ -1241,7 +1382,7 @@ if category == 'spv':
 
 # Using a similar process to create a list of frequently-typed words with the *lowest* accuracy ratings:
 
-# In[54]:
+# In[62]:
 
 
 if category == 'spv':
@@ -1254,7 +1395,7 @@ if category == 'spv':
     include_plotlyjs = 'cdn')
 
 
-# In[55]:
+# In[63]:
 
 
 if category == 'spv':
@@ -1267,7 +1408,7 @@ if category == 'spv':
     include_plotlyjs = 'cdn')
 
 
-# In[56]:
+# In[64]:
 
 
 if category == 'spv':
@@ -1282,7 +1423,7 @@ if category == 'spv':
 
 # ## Overall progress analyses:
 
-# In[57]:
+# In[65]:
 
 
 if category == 'spv':
@@ -1294,7 +1435,7 @@ if category == 'spv':
     df_Bible
 
 
-# In[58]:
+# In[66]:
 
 
 if category == 'spv':
@@ -1311,7 +1452,7 @@ if category == 'spv':
 
 # Graphing progress in percentage terms:
 
-# In[59]:
+# In[67]:
 
 
 if category == 'spv':
@@ -1328,7 +1469,7 @@ if category == 'spv':
 # 
 # (This chart, unlike the previous one, doesn't include the 'Overall' row, as its presence would make all of the other bars appear very small in comparison.)
 
-# In[60]:
+# In[68]:
 
 
 if category == 'spv':
@@ -1345,7 +1486,7 @@ Characters Typed', text_auto = '.0f', barmode = 'overlay',
     include_plotlyjs = 'cdn')
 
 
-# In[61]:
+# In[69]:
 
 
 if category == 'spv':
@@ -1359,7 +1500,7 @@ if category == 'spv':
 
 # Creating a bar chart that shows whether or not each verse has been typed: (Verses can be identified by hovering over them. This chart isn't as practical as the others, but it's still fun to look at. :)
 
-# In[62]:
+# In[70]:
 
 
 if category == 'spv':
@@ -1376,7 +1517,7 @@ if category == 'spv':
     include_plotlyjs = 'cdn')
 
 
-# In[63]:
+# In[71]:
 
 
 if category == 'spv':
