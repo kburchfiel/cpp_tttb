@@ -53,8 +53,8 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 52,OT,Genesis,1,2,21,Genesis_2:21,"And so the Lord God sent a deep sleep upon Adam. And when he was fast asleep, he took one of his ribs, and he completed it with flesh for it.",141,1,124.354484
 53,OT,Genesis,1,2,22,Genesis_2:22,"And the Lord God built up the rib, which he took from Adam, into a woman. And he led her to Adam.",97,1,161.098713
 54,OT,Genesis,1,2,23,Genesis_2:23,"And Adam said: ""Now this is bone from my bones, and flesh from my flesh. This one shall be called woman, because she was taken from man.""",137,1,113.960987
-55,OT,Genesis,1,2,24,Genesis_2:24,"For this reason, a man shall leave behind his father and mother, and he shall cling to his wife; and the two shall be as one flesh.",131,1,135.154452
-56,OT,Genesis,1,2,25,Genesis_2:25,"Now they were both naked: Adam, of course, and his wife. And they were not ashamed.",83,1,100.734156
+55,OT,Genesis,1,2,24,Genesis_2:24,"For this reason, a man shall leave behind his father and mother, and he shall cling to his wife; and the two shall be as one flesh.",131,2,149.567200
+56,OT,Genesis,1,2,25,Genesis_2:25,"Now they were both naked: Adam, of course, and his wife. And they were not ashamed.",83,2,121.191587
 57,OT,Genesis,1,3,1,Genesis_3:1,"However, the serpent was more crafty than any of the creatures of the earth that the Lord God had made. And he said to the woman, ""Why has God instructed you, that you should not eat from every tree of Paradise?""",212,1,128.386126
 58,OT,Genesis,1,3,2,Genesis_3:2,"The woman responded to him: ""From the fruit of the trees which are in Paradise, we eat.",87,1,103.556938
 59,OT,Genesis,1,3,3,Genesis_3:3,"Yet truly, from the fruit of the tree which is in the middle of Paradise, God has instructed us that we should not eat, and that we should not touch it, lest perhaps we may die.""",178,1,104.179934
@@ -230,7 +230,7 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 229,OT,Genesis,1,9,24,Genesis_9:24,"Then Noah, awaking from the wine, when he had learned what his younger son had done to him,",91,1,138.013186
 230,OT,Genesis,1,9,25,Genesis_9:25,"he said, ""Cursed be Canaan, a servant of servants will he be to his brothers.""",78,1,90.767033
 231,OT,Genesis,1,9,26,Genesis_9:26,"And he said: ""Blessed be the Lord God of Shem, let Canaan be his servant.",73,1,114.470992
-232,OT,Genesis,1,9,27,Genesis_9:27,"May God enlarge Japheth, and may he live in the tents of Shem, and let Canaan be his servant.""",94,1,133.782201
+232,OT,Genesis,1,9,27,Genesis_9:27,"May God enlarge Japheth, and may he live in the tents of Shem, and let Canaan be his servant.""",94,2,133.782201
 233,OT,Genesis,1,9,28,Genesis_9:28,"And after the great flood, Noah lived for three hundred and fifty years.",72,1,164.170261
 234,OT,Genesis,1,9,29,Genesis_9:29,"And all his days were completed in nine hundred and fifty years, and then he died.",82,1,167.097538
 235,OT,Genesis,1,10,1,Genesis_10:1,"These are the generations of the sons of Noah: Shem, Ham, and Japheth, and of the sons who were born to them after the great flood.",131,1,145.752559
@@ -1343,63 +1343,63 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 1342,OT,Genesis,1,44,18,Genesis_44:18,"Then Judah, approaching closer, said confidently: ""I beg you, my lord, let your servant speak a word in your ears, and do not be angry with your servant. For you are next to Pharaoh.",182,1,122.052446
 1343,OT,Genesis,1,44,19,Genesis_44:19,"My lord, you questioned your servants before: 'Do you have a father or a brother?'",82,1,96.996854
 1344,OT,Genesis,1,44,20,Genesis_44:20,"And we answered you, my lord: 'There is our father, an old man, and a young boy, who was born in his old age. His brother of the same womb has died, and he alone is left to his mother and father, who truly love him tenderly.'",225,1,111.905885
-1345,OT,Genesis,1,44,21,Genesis_44:21,"And you said to your servants, 'Bring him to me, and I will set my eyes on him.'",80,0,0.000000
-1346,OT,Genesis,1,44,22,Genesis_44:22,"We suggested to my lord: 'The boy is not able to leave his father. For if he sends him away, he will die.'",106,0,0.000000
-1347,OT,Genesis,1,44,23,Genesis_44:23,"And you said to your servants: 'Unless your youngest brother arrives with you, you will not see my face any more.'",114,0,0.000000
-1348,OT,Genesis,1,44,24,Genesis_44:24,"Therefore, when we had gone up to your servant our father, we explained to him all that my lord had spoken.",107,0,0.000000
-1349,OT,Genesis,1,44,25,Genesis_44:25,And our father said: 'Return and buy us a little wheat.',56,0,0.000000
-1350,OT,Genesis,1,44,26,Genesis_44:26,"And we said to him: 'We cannot go. If our youngest brother descends with us, we will set out together. Otherwise, in his absence, we do not dare to see the face of the man.'",173,0,0.000000
-1351,OT,Genesis,1,44,27,Genesis_44:27,To which he responded: 'You know that my wife conceived twice by me.,68,0,0.000000
-1352,OT,Genesis,1,44,28,Genesis_44:28,"One went out, and you said, ""A beast devoured him."" And since then, he has not appeared.",88,0,0.000000
-1353,OT,Genesis,1,44,29,Genesis_44:29,"If you take this one also, and anything happens to him on the way, you will lead my grey hairs down with grief to the grave.'",125,0,0.000000
-1354,OT,Genesis,1,44,30,Genesis_44:30,"Therefore, if I would have gone to your servant, our father, with the boy not present, (though his life depends upon the life of him)",133,0,0.000000
-1355,OT,Genesis,1,44,31,Genesis_44:31,"and if he were to see that he is not with us, he would die, and your servants will lead his grey hairs down with sorrow to the grave.",133,0,0.000000
-1356,OT,Genesis,1,44,32,Genesis_44:32,"Let me be your very own servant, for I accepted this one into my trust, and I promised, saying: 'Unless I lead him back, I will be guilty of a sin against my father for all time.'",179,0,0.000000
-1357,OT,Genesis,1,44,33,Genesis_44:33,"And so I, your servant, will remain in place of the boy, in ministry to my lord, and then let the boy go up with his brothers.",126,0,0.000000
-1358,OT,Genesis,1,44,34,Genesis_44:34,"For I cannot return to my father without the boy, lest I appear as a witness to the calamity that will oppress my father.""",122,0,0.000000
-1359,OT,Genesis,1,45,1,Genesis_45:1,"Joseph was unable to restrain himself any longer, standing before so many. Therefore, he instructed that all should go outside, and that no stranger should be among them as they recognized one another.",201,0,0.000000
-1360,OT,Genesis,1,45,2,Genesis_45:2,"And he lifted up his voice with weeping, which the Egyptians heard, along with the entire house of Pharaoh.",107,0,0.000000
-1361,OT,Genesis,1,45,3,Genesis_45:3,"And he said to his brothers: ""I am Joseph. Is my father still alive?"" His brothers were unable to respond, being terrified by a very great fear.",144,0,0.000000
-1362,OT,Genesis,1,45,4,Genesis_45:4,"And he said to them mildly, ""Approach toward me."" And when they had approached close by, he said: ""I am Joseph, your brother, whom you sold into Egypt.",151,0,0.000000
-1363,OT,Genesis,1,45,5,Genesis_45:5,"Do not be afraid, and let it not seem to you to be a hardship that you sold me into these regions. For God sent me before you into Egypt for your salvation.",156,0,0.000000
-1364,OT,Genesis,1,45,6,Genesis_45:6,"For it is two years since the famine began to be upon the land, and five years more remain, in which there can be neither plowing, nor reaping.",143,0,0.000000
-1365,OT,Genesis,1,45,7,Genesis_45:7,"And God sent me ahead, so that you may be preserved upon the earth, and so that you would be able to have food in order to live.",128,0,0.000000
-1366,OT,Genesis,1,45,8,Genesis_45:8,"I was sent here, not by your counsel, but by the will of God. He has caused me to be like a father to Pharaoh, and to be the lord of his entire house, as well as governor throughout all the land of Egypt.",204,0,0.000000
-1367,OT,Genesis,1,45,9,Genesis_45:9,"Hurry, and go up to my father, and say to him: 'Your son Joseph commands this: God has caused me to be lord of the entire land of Egypt. Come down to me, do not delay,",167,0,0.000000
-1368,OT,Genesis,1,45,10,Genesis_45:10,"and you will live in the land of Goshen. And you will be next to me, you and your sons and the sons of your sons, your sheep and your herds, and all that you possess.",166,0,0.000000
-1369,OT,Genesis,1,45,11,Genesis_45:11,"And there I will pasture you, (for there are still five years of famine remaining) lest both you and your house perish, along with all that you possess.'",153,0,0.000000
-1370,OT,Genesis,1,45,12,Genesis_45:12,"Behold, your eyes and the eyes of my brother Benjamin can see that it is my mouth speaking to you.",98,0,0.000000
-1371,OT,Genesis,1,45,13,Genesis_45:13,"You will report to my father about all my glory, and about all that you have seen in Egypt. Hurry, and bring him to me.""",120,0,0.000000
-1372,OT,Genesis,1,45,14,Genesis_45:14,"And then falling upon the neck of his brother Benjamin, he embraced him and wept. And likewise, Benjamin wept at the same time on his neck.",139,0,0.000000
-1373,OT,Genesis,1,45,15,Genesis_45:15,"And Joseph kissed all his brothers, and he cried over each one. After this, they were emboldened to speak to him.",113,0,0.000000
-1374,OT,Genesis,1,45,16,Genesis_45:16,"And it was overheard, and the news spread by word throughout the king's court. The brothers of Joseph had arrived, and Pharaoh was gladdened along with all his family.",167,0,0.000000
-1375,OT,Genesis,1,45,17,Genesis_45:17,"And he told Joseph that he should command his brothers, saying: "" 'Burden your beasts, and go into the land of Canaan,",118,0,0.000000
-1376,OT,Genesis,1,45,18,Genesis_45:18,"and take from there your father and kindred, and come to me. And I will give you all the good things of Egypt, so that you may eat from the marrow of the land.' """,162,0,0.000000
-1377,OT,Genesis,1,45,19,Genesis_45:19,"""And you may even instruct that they take wagons from the land of Egypt, in order to transport their little ones as well as their wives. And say: 'Take your father, and come quickly, as soon as possible.",203,0,0.000000
-1378,OT,Genesis,1,45,20,Genesis_45:20,"You need not give up anything from your household, for all the riches of Egypt will be yours.' """,96,0,0.000000
-1379,OT,Genesis,1,45,21,Genesis_45:21,"And the sons of Israel did just as they were commanded. And Joseph gave them wagons, according to the command of Pharaoh, and provisions for the journey.",153,0,0.000000
-1380,OT,Genesis,1,45,22,Genesis_45:22,"Likewise, he ordered two robes for each of them to be brought. Yet truly, to Benjamin he gave three hundred pieces of silver along with five of the best robes.",159,0,0.000000
-1381,OT,Genesis,1,45,23,Genesis_45:23,"And he sent just as much money and clothing to his father, adding also ten male donkeys, with which to transport all the riches of Egypt, and as many female donkeys, carrying wheat and bread for the journey.",207,0,0.000000
-1382,OT,Genesis,1,45,24,Genesis_45:24,"Thus he sent away his brothers, and as they set out he said, ""Do not become angry on the way.""",94,0,0.000000
-1383,OT,Genesis,1,45,25,Genesis_45:25,"And they ascended out of Egypt, and they arrived in the land of Canaan, to their father Jacob.",94,0,0.000000
-1384,OT,Genesis,1,45,26,Genesis_45:26,"And they reported to him, saying: ""Your son Joseph is alive, and he is ruler throughout all the land of Egypt. When Jacob heard this, he was stirred up, as if from a deep sleep, yet he did not believe them.",206,0,0.000000
-1385,OT,Genesis,1,45,27,Genesis_45:27,"To the contrary, they explained the entire matter in order. And when he had seen the wagons, and all that he had sent, his spirit revived,",138,0,0.000000
-1386,OT,Genesis,1,45,28,Genesis_45:28,"and he said: ""It is enough for me, if my son Joseph is still alive. I will go and see him before I die.""",104,0,0.000000
-1387,OT,Genesis,1,46,1,Genesis_46:1,"And Israel, setting out with all that he had, arrived at the Well of the Oath. And sacrificing victims there to the God of his father Isaac,",140,0,0.000000
-1388,OT,Genesis,1,46,2,Genesis_46:2,"he heard him, by a vision in the night, calling him, and saying to him: ""Jacob, Jacob."" And he answered him, ""Behold, here I am.""",129,0,0.000000
-1389,OT,Genesis,1,46,3,Genesis_46:3,"God said to him: ""I am the most strong God of your father. Do not be afraid. Descend into Egypt, for there I will make of you a great nation.",141,0,0.000000
-1390,OT,Genesis,1,46,4,Genesis_46:4,"I will descend with you to that place, and I will lead you back from there, returning. Also, Joseph will place his hands over your eyes.",136,0,0.000000
-1391,OT,Genesis,1,46,5,Genesis_46:5,"Then Jacob rose up from the Well of the Oath. And his sons took him, with their little ones and wives, in the wagons that Pharaoh had sent to carry the old man,",160,0,0.000000
-1392,OT,Genesis,1,46,6,Genesis_46:6,along with all that he possessed in the land of Canaan. And he arrived in Egypt with all his offspring:,103,0,0.000000
-1393,OT,Genesis,1,46,7,Genesis_46:7,"his sons and his grandsons, his daughters and all his progeny together.",71,0,0.000000
-1394,OT,Genesis,1,46,8,Genesis_46:8,"Now these are the names of the sons of Israel, who entered into Egypt, he with his children. The firstborn is Reuben.",117,0,0.000000
-1395,OT,Genesis,1,46,9,Genesis_46:9,"The sons of Reuben: Hanoch and Pallu, and Hezron and Carmi.",59,0,0.000000
-1396,OT,Genesis,1,46,10,Genesis_46:10,"The sons of Simeon: Jemuel and Jamin and Ohad, and Jachin and Zohar, and Shaul, the son of a Canaanite woman.",109,0,0.000000
-1397,OT,Genesis,1,46,11,Genesis_46:11,"The sons of Levi: Gershon and Kohath, and Merari.",49,0,0.000000
-1398,OT,Genesis,1,46,12,Genesis_46:12,"The sons of Judah: Er and Onan, and Shelah, and Perez and Zerah. Now Er and Onan died in the land of Canaan. And sons were born to Perez: Hezron and Hamul.",155,0,0.000000
-1399,OT,Genesis,1,46,13,Genesis_46:13,"The sons of Issachar: Tola and Puvah, and Job and Shimron.",58,0,0.000000
-1400,OT,Genesis,1,46,14,Genesis_46:14,The sons of Zebulun: Sered and Elon and Jahleel.,48,0,0.000000
-1401,OT,Genesis,1,46,15,Genesis_46:15,"These are the sons of Leah, whom she bore, along with his daughter Dinah, in Mesopotamia of Syria. All the souls of her sons and daughters are thirty-three.",156,0,0.000000
+1345,OT,Genesis,1,44,21,Genesis_44:21,"And you said to your servants, 'Bring him to me, and I will set my eyes on him.'",80,1,133.046582
+1346,OT,Genesis,1,44,22,Genesis_44:22,"We suggested to my lord: 'The boy is not able to leave his father. For if he sends him away, he will die.'",106,1,120.638560
+1347,OT,Genesis,1,44,23,Genesis_44:23,"And you said to your servants: 'Unless your youngest brother arrives with you, you will not see my face any more.'",114,1,108.506762
+1348,OT,Genesis,1,44,24,Genesis_44:24,"Therefore, when we had gone up to your servant our father, we explained to him all that my lord had spoken.",107,1,86.574461
+1349,OT,Genesis,1,44,25,Genesis_44:25,And our father said: 'Return and buy us a little wheat.',56,1,76.287379
+1350,OT,Genesis,1,44,26,Genesis_44:26,"And we said to him: 'We cannot go. If our youngest brother descends with us, we will set out together. Otherwise, in his absence, we do not dare to see the face of the man.'",173,1,146.376564
+1351,OT,Genesis,1,44,27,Genesis_44:27,To which he responded: 'You know that my wife conceived twice by me.,68,1,94.601815
+1352,OT,Genesis,1,44,28,Genesis_44:28,"One went out, and you said, ""A beast devoured him."" And since then, he has not appeared.",88,1,130.328748
+1353,OT,Genesis,1,44,29,Genesis_44:29,"If you take this one also, and anything happens to him on the way, you will lead my grey hairs down with grief to the grave.'",125,1,130.184897
+1354,OT,Genesis,1,44,30,Genesis_44:30,"Therefore, if I would have gone to your servant, our father, with the boy not present, (though his life depends upon the life of him)",133,1,141.997969
+1355,OT,Genesis,1,44,31,Genesis_44:31,"and if he were to see that he is not with us, he would die, and your servants will lead his grey hairs down with sorrow to the grave.",133,1,163.068920
+1356,OT,Genesis,1,44,32,Genesis_44:32,"Let me be your very own servant, for I accepted this one into my trust, and I promised, saying: 'Unless I lead him back, I will be guilty of a sin against my father for all time.'",179,1,125.469269
+1357,OT,Genesis,1,44,33,Genesis_44:33,"And so I, your servant, will remain in place of the boy, in ministry to my lord, and then let the boy go up with his brothers.",126,1,102.901572
+1358,OT,Genesis,1,44,34,Genesis_44:34,"For I cannot return to my father without the boy, lest I appear as a witness to the calamity that will oppress my father.""",122,1,126.126259
+1359,OT,Genesis,1,45,1,Genesis_45:1,"Joseph was unable to restrain himself any longer, standing before so many. Therefore, he instructed that all should go outside, and that no stranger should be among them as they recognized one another.",201,1,148.270826
+1360,OT,Genesis,1,45,2,Genesis_45:2,"And he lifted up his voice with weeping, which the Egyptians heard, along with the entire house of Pharaoh.",107,1,149.390672
+1361,OT,Genesis,1,45,3,Genesis_45:3,"And he said to his brothers: ""I am Joseph. Is my father still alive?"" His brothers were unable to respond, being terrified by a very great fear.",144,1,121.587749
+1362,OT,Genesis,1,45,4,Genesis_45:4,"And he said to them mildly, ""Approach toward me."" And when they had approached close by, he said: ""I am Joseph, your brother, whom you sold into Egypt.",151,1,88.512209
+1363,OT,Genesis,1,45,5,Genesis_45:5,"Do not be afraid, and let it not seem to you to be a hardship that you sold me into these regions. For God sent me before you into Egypt for your salvation.",156,1,119.379140
+1364,OT,Genesis,1,45,6,Genesis_45:6,"For it is two years since the famine began to be upon the land, and five years more remain, in which there can be neither plowing, nor reaping.",143,1,120.517424
+1365,OT,Genesis,1,45,7,Genesis_45:7,"And God sent me ahead, so that you may be preserved upon the earth, and so that you would be able to have food in order to live.",128,1,137.067193
+1366,OT,Genesis,1,45,8,Genesis_45:8,"I was sent here, not by your counsel, but by the will of God. He has caused me to be like a father to Pharaoh, and to be the lord of his entire house, as well as governor throughout all the land of Egypt.",204,1,117.243568
+1367,OT,Genesis,1,45,9,Genesis_45:9,"Hurry, and go up to my father, and say to him: 'Your son Joseph commands this: God has caused me to be lord of the entire land of Egypt. Come down to me, do not delay,",167,1,139.718004
+1368,OT,Genesis,1,45,10,Genesis_45:10,"and you will live in the land of Goshen. And you will be next to me, you and your sons and the sons of your sons, your sheep and your herds, and all that you possess.",166,1,130.523412
+1369,OT,Genesis,1,45,11,Genesis_45:11,"And there I will pasture you, (for there are still five years of famine remaining) lest both you and your house perish, along with all that you possess.'",153,1,120.557622
+1370,OT,Genesis,1,45,12,Genesis_45:12,"Behold, your eyes and the eyes of my brother Benjamin can see that it is my mouth speaking to you.",98,1,144.787041
+1371,OT,Genesis,1,45,13,Genesis_45:13,"You will report to my father about all my glory, and about all that you have seen in Egypt. Hurry, and bring him to me.""",120,1,157.610870
+1372,OT,Genesis,1,45,14,Genesis_45:14,"And then falling upon the neck of his brother Benjamin, he embraced him and wept. And likewise, Benjamin wept at the same time on his neck.",139,1,140.808086
+1373,OT,Genesis,1,45,15,Genesis_45:15,"And Joseph kissed all his brothers, and he cried over each one. After this, they were emboldened to speak to him.",113,1,135.621468
+1374,OT,Genesis,1,45,16,Genesis_45:16,"And it was overheard, and the news spread by word throughout the king's court. The brothers of Joseph had arrived, and Pharaoh was gladdened along with all his family.",167,1,122.966117
+1375,OT,Genesis,1,45,17,Genesis_45:17,"And he told Joseph that he should command his brothers, saying: "" 'Burden your beasts, and go into the land of Canaan,",118,1,95.278791
+1376,OT,Genesis,1,45,18,Genesis_45:18,"and take from there your father and kindred, and come to me. And I will give you all the good things of Egypt, so that you may eat from the marrow of the land.' """,162,1,124.665800
+1377,OT,Genesis,1,45,19,Genesis_45:19,"""And you may even instruct that they take wagons from the land of Egypt, in order to transport their little ones as well as their wives. And say: 'Take your father, and come quickly, as soon as possible.",203,1,150.918096
+1378,OT,Genesis,1,45,20,Genesis_45:20,"You need not give up anything from your household, for all the riches of Egypt will be yours.' """,96,1,130.482503
+1379,OT,Genesis,1,45,21,Genesis_45:21,"And the sons of Israel did just as they were commanded. And Joseph gave them wagons, according to the command of Pharaoh, and provisions for the journey.",153,1,108.856783
+1380,OT,Genesis,1,45,22,Genesis_45:22,"Likewise, he ordered two robes for each of them to be brought. Yet truly, to Benjamin he gave three hundred pieces of silver along with five of the best robes.",159,1,142.211519
+1381,OT,Genesis,1,45,23,Genesis_45:23,"And he sent just as much money and clothing to his father, adding also ten male donkeys, with which to transport all the riches of Egypt, and as many female donkeys, carrying wheat and bread for the journey.",207,1,154.716259
+1382,OT,Genesis,1,45,24,Genesis_45:24,"Thus he sent away his brothers, and as they set out he said, ""Do not become angry on the way.""",94,1,158.418275
+1383,OT,Genesis,1,45,25,Genesis_45:25,"And they ascended out of Egypt, and they arrived in the land of Canaan, to their father Jacob.",94,1,152.987776
+1384,OT,Genesis,1,45,26,Genesis_45:26,"And they reported to him, saying: ""Your son Joseph is alive, and he is ruler throughout all the land of Egypt. When Jacob heard this, he was stirred up, as if from a deep sleep, yet he did not believe them.",206,1,136.530641
+1385,OT,Genesis,1,45,27,Genesis_45:27,"To the contrary, they explained the entire matter in order. And when he had seen the wagons, and all that he had sent, his spirit revived,",138,1,113.062193
+1386,OT,Genesis,1,45,28,Genesis_45:28,"and he said: ""It is enough for me, if my son Joseph is still alive. I will go and see him before I die.""",104,1,98.407818
+1387,OT,Genesis,1,46,1,Genesis_46:1,"And Israel, setting out with all that he had, arrived at the Well of the Oath. And sacrificing victims there to the God of his father Isaac,",140,1,127.248386
+1388,OT,Genesis,1,46,2,Genesis_46:2,"he heard him, by a vision in the night, calling him, and saying to him: ""Jacob, Jacob."" And he answered him, ""Behold, here I am.""",129,1,140.625353
+1389,OT,Genesis,1,46,3,Genesis_46:3,"God said to him: ""I am the most strong God of your father. Do not be afraid. Descend into Egypt, for there I will make of you a great nation.",141,1,113.487731
+1390,OT,Genesis,1,46,4,Genesis_46:4,"I will descend with you to that place, and I will lead you back from there, returning. Also, Joseph will place his hands over your eyes.",136,1,160.230819
+1391,OT,Genesis,1,46,5,Genesis_46:5,"Then Jacob rose up from the Well of the Oath. And his sons took him, with their little ones and wives, in the wagons that Pharaoh had sent to carry the old man,",160,1,132.367538
+1392,OT,Genesis,1,46,6,Genesis_46:6,along with all that he possessed in the land of Canaan. And he arrived in Egypt with all his offspring:,103,1,126.150639
+1393,OT,Genesis,1,46,7,Genesis_46:7,"his sons and his grandsons, his daughters and all his progeny together.",71,1,152.057365
+1394,OT,Genesis,1,46,8,Genesis_46:8,"Now these are the names of the sons of Israel, who entered into Egypt, he with his children. The firstborn is Reuben.",117,1,122.225978
+1395,OT,Genesis,1,46,9,Genesis_46:9,"The sons of Reuben: Hanoch and Pallu, and Hezron and Carmi.",59,1,133.809942
+1396,OT,Genesis,1,46,10,Genesis_46:10,"The sons of Simeon: Jemuel and Jamin and Ohad, and Jachin and Zohar, and Shaul, the son of a Canaanite woman.",109,1,121.112792
+1397,OT,Genesis,1,46,11,Genesis_46:11,"The sons of Levi: Gershon and Kohath, and Merari.",49,1,133.100376
+1398,OT,Genesis,1,46,12,Genesis_46:12,"The sons of Judah: Er and Onan, and Shelah, and Perez and Zerah. Now Er and Onan died in the land of Canaan. And sons were born to Perez: Hezron and Hamul.",155,1,111.468823
+1399,OT,Genesis,1,46,13,Genesis_46:13,"The sons of Issachar: Tola and Puvah, and Job and Shimron.",58,1,129.412528
+1400,OT,Genesis,1,46,14,Genesis_46:14,The sons of Zebulun: Sered and Elon and Jahleel.,48,1,91.353949
+1401,OT,Genesis,1,46,15,Genesis_46:15,"These are the sons of Leah, whom she bore, along with his daughter Dinah, in Mesopotamia of Syria. All the souls of her sons and daughters are thirty-three.",156,1,128.219304
 1402,OT,Genesis,1,46,16,Genesis_46:16,"The sons of Gad: Ziphion and Haggi, and Shuni and Ezbon, and Eri and Arodi, and Areli.",86,0,0.000000
 1403,OT,Genesis,1,46,17,Genesis_46:17,"The sons of Asher: Imnah and Jesua, and Jessui and Beriah, and also their sister Sarah. The sons of Beria: Heber and Malchiel.",126,0,0.000000
 1404,OT,Genesis,1,46,18,Genesis_46:18,"These are the sons of Zilpah, whom Laban gave to his daughter Leah. And these she bore to Jacob: sixteen souls.",111,0,0.000000

@@ -667,7 +667,10 @@ of that test.
   // In order to make the transition from the following dialog
   // to the actual test less jarring, I chose to place the verse
   // at the top of the screen, exactly where it will appear
-  // during the test itself.
+  // during the test itself. I also placed the post-entry message
+  // at the same place that it will appear when a marathon mode
+  // is active.
+
   // Note: clear_screen() hides content within the current
   // window by scrolling down until the window is blank;
   // clear() removes content further up in the terminal that is
@@ -675,11 +678,13 @@ of that test.
   // clear() and a command to move the cursor to the top left,
   // prevents the terminal from filling up with previous entries
   // that no longer
-  // need to be saved in memory. (Note that, without the
+  // need to be saved in memory.
+  // (Note that, without the
   // inclusion of clear(), a new screen would be stored in
   // memory for all, or almost all *keypresses* during typing
   // tests--which I imagine could cause all sorts of
-  // memory-related issues, at least on lower-powered devices.
+  // memory- or performance-related issues, at least on lower-powered devices.
+
   // I found clear() within the cpp-terminal documentation;
   // you can search for it by looking for the text [3J (which
   // is part of a particular 'Erase in Display' ANSI erase
@@ -688,7 +693,8 @@ of that test.
   // https://askubuntu.com/a/473770/1685413 .
 
   Term::cout << Term::clear_screen() << Term::terminal.clear()
-             << Term::cursor_move(1, 1) << verse_row.verse << std::endl;
+             << Term::cursor_move(1, 1) << verse_row.verse << "\n"
+             << post_entry_message << std::endl;
 
   // Determining where to position the cursor after each keypress:
   // The best option here will be to position it at the leftmost
@@ -715,6 +721,19 @@ of that test.
 
   std::string cursor_reposition_code =
       Term::cursor_move(starting_result_row, 1);
+
+  /*
+  Note that, for cursor_move to have an effect, we need to pass
+  its output (a string) to Term::cout. Also note that using
+  std::cout in place of Term::cout may not work.
+  The kilo.cpp example (available at
+  https://github.com/jupyter-xeus/cpp-terminal/blob/master/examples/kilo.cpp
+  and the cursor.cpp source code at
+  https://github.com/jupyter-xeus/cpp-terminal/blob/master/cpp-terminal/cursor.cpp
+  helped me recognize all this.)
+  I've also found that ending Term::cout lines with "\n" may
+  not work; instead, it may be necessary to use std::endl or std::flush.
+  */
 
   if (marathon_mode == false) // The following prompt should be skipped
   // within marathon mode, thus allowing users to go directly
@@ -744,38 +763,6 @@ the space bar to begin the typing test and 'e' to cancel it."
       completed_test = false;
     }
   }
-
-  // Clearing the screen before the start of the test:
-  // cursor_move(1,1) moves the cursor to the top left of the terminal.
-  // Note that, for this to work, we need to pass
-  // this function call to Term::cout (it doesn't do
-  // anything by itself). Also note that using std::cout in place
-  // of Term::cout wouldn't work.
-  // The kilo.cpp example (available at
-  // https://github.com/jupyter-xeus/cpp-terminal/blob/master/examples/kilo.cpp
-  // and the cursor.cpp source code at
-  // https://github.com/jupyter-xeus/cpp-terminal/blob/master/cpp-terminal/cursor.cpp
-  // helped me recognize all this.)
-  // I've also found that ending Term::cout lines with "\n" may
-  // not work; instead, it may be necessary to use std::endl .
-
-  // Moving the cursor to the starting row for the player's response,
-  // then clearing out all text already on or beneath it:
-  // Note: \033[J is an 'erase in display' ANSI escape code
-  // that clears out all text following the cursor.
-  // (I used the ANSI escape code Wikipedia page at
-  // https://en.wikipedia.org/wiki/ANSI_escape_code and the
-  // Hello World! demo for cpp-terminal at
-  // https://en.wikipedia.org/wiki/ANSI_escape_code to figure
-  // out what to enter here. I don't think the cpp-terminal
-  // library has a function for this code yet, but this approach
-  // works fine also.
-  // Also note that functions like 'cursor_move()' also make
-  // use of escape codes; see
-  // https://jupyter-xeus.github.io/cpp-terminal/cursor_8cpp_source.html
-  // for examples of the original codes underlying this and
-  // related functions.
-  Term::cout << cursor_reposition_code << "\033[J" << std::endl;
 
   // Determining the start time of the test in system clock form:
   // (Note: Linux allowed the start_time created by
@@ -1023,6 +1010,21 @@ the space bar to begin the typing test and 'e' to cancel it."
       It may seem 'wasteful' to print all the characters of
       the response anew each time, but it prevents us from
       having to deal with various edge cases.
+
+      \033[J is an 'erase in display' ANSI escape code
+      that clears out all text following the cursor.
+      (I used the ANSI escape code Wikipedia page at
+      https://en.wikipedia.org/wiki/ANSI_escape_code and the
+      Hello World! demo for cpp-terminal at
+      https://en.wikipedia.org/wiki/ANSI_escape_code to figure
+      out what to enter here. I don't think the cpp-terminal
+      library has a function for this code yet, but this approach
+      works fine also.
+      Also note that functions like 'cursor_move()' also make
+      use of escape codes; see
+      https://jupyter-xeus.github.io/cpp-terminal/cursor_8cpp_source.html
+      for examples of the original codes underlying this and
+      related functions.
 
       Note: an earlier version of this code moved the cursor
       to the top left of the terminal; cleared out all of
@@ -1908,6 +1910,7 @@ autosaved_word_results.csv";
   int earliest_untyped_verse_index = 40000; // This number will be
   // updated within the following for loop.
   int typed_characters = 0;
+  double top_within_session_wpm = 0.0;
   double total_characters = 0; // Setting this as a double so that
   // typed characters / all characters quotients will
   // themselves be doubles.
@@ -2003,6 +2006,13 @@ this rare accomplishment!"
     // replaced with a brief stats update when marathon mode is
     // active; otherwise, it will be kept as an empty string.
 
+    // Checking whether our top-within-session WPM value needs
+    // to be updated:
+    if (within_session_test_number >= 1) {
+      if (trrv.back().wpm > top_within_session_wpm) {
+        top_within_session_wpm = trrv.back().wpm;
+      }
+    }
     // Calculating the player's average WPM across (1) all races
     // completed this session and (2) the last 10 races:
 
@@ -2045,15 +2055,16 @@ this rare accomplishment!"
 
       if (within_session_test_number >= 2) {
         post_entry_message +=
-            "Within-session stats: Characters: " +
+            "Session stats: " +
             std::to_string(characters_typed_during_current_session) +
-            "; Verses: " + std::to_string(within_session_test_number) +
-            "; Mean WPM: " + std::to_string(session_wpm_mean);
+            " characters; " + std::to_string(within_session_test_number) +
+            " verses; " + std::to_string(session_wpm_mean) + "/" +
+            std::to_string(top_within_session_wpm) + " mean/max WPM";
       }
 
       if (within_session_test_number >= 10) {
-        post_entry_message += ";\nMean WPM for last 10 tests: " +
-                              std::to_string(last_10_wpm_mean);
+        post_entry_message += ";\n" + std::to_string(last_10_wpm_mean) +
+                              " mean WPM over the last 10 tests";
       }
     }
 
@@ -2095,10 +2106,11 @@ including backspaces) and " +
             "You have typed " +
             std::to_string(characters_typed_during_current_session) +
             " characters \
-so far this session. Your mean WPM over the " +
+so far this session. Your mean and top WPM over the " +
             std::to_string(within_session_test_number) +
-            " tests you have completed this session is " +
-            std::to_string(session_wpm_mean) + ".\n";
+            " tests you have completed this session are " +
+            std::to_string(session_wpm_mean) + " and " +
+            std::to_string(top_within_session_wpm) + ", respectively.\n";
       };
 
       if (within_session_test_number >= 10) {
