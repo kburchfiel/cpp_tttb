@@ -22,7 +22,7 @@
 
 import time
 start_time = time.time()
-print("Starting Version 1.02 of tttb_py_complement script. It may \
+print("Starting Version 1.03 of tttb_py_complement script. It may \
 take a little while to run; please be patient.")
 import os
 import subprocess
@@ -45,6 +45,8 @@ np.__version__, '\t', "Plotly version:",plotly.__version__)
 mp_results_folder = '../Files/Multiplayer/'
 mp_visualizations_folder = '../Visualizations/Multiplayer/'
 sp_visualizations_folder = '../Visualizations/Single_Player/'
+mp_analyses_folder = '../Analyses/Multiplayer/'
+sp_analyses_folder = '../Analyses/Single_Player/'
 
 
 # Checking whether this script is running within a Jupyter notebook: 
@@ -90,7 +92,7 @@ if notebook_exec == False:
     category = args.category
     second_arg = args.second_arg
 else:
-    category = 'spv'
+    category = 'spv' # options: spv; mpv; and mpfc
     second_arg = 'y'
 
 category, second_arg
@@ -387,6 +389,15 @@ if category == 'mpv':
     print(f"Analyzing results within {test_results_file}.")
     df = pd.read_csv(mp_results_folder+test_results_file)
 
+    # See similar code within single-player visualizations component
+    # for more details.
+    # I'm not currently using these fields for analyses, but they may still
+    # come in handy later on.
+
+    for col in ['Unix_Test_Start_Time', 'Unix_Test_End_Time']:
+        df[col.replace('Unix', 'UTC')] = pd.to_datetime(
+    df[col], unit='s')
+
 
 # In[12]:
 
@@ -444,6 +455,9 @@ player_and_test.html',
     # shown within the chart (which will prove useful for multiplayer rounds
     # with larger player counts).
     # fig_wpm_by_player
+    df_wpm_type_melt.to_csv(
+    f'{mp_analyses_folder}{test_results_name}_mean_WPM_\
+by_player_and_test.csv', index = False)
 
 
 # Calculating mean WPM by player and round as well as overall WPM:
@@ -507,7 +521,9 @@ if category == 'mpv':
         f'{mp_visualizations_folder}{test_results_name}_mean_WPM_\
 by_player_and_round.html',
         include_plotlyjs = 'cdn')
-    # fig_mean_wpm_by_player_and_round
+    df_mean_wpm_by_player_and_round.to_csv(
+    f'{mp_analyses_folder}{test_results_name}_mean_WPM_\
+by_player_and_round.csv', index = False)
 
 
 # In[15]:
@@ -518,7 +534,6 @@ if category == 'mpv':
 WPM for this test', aggfunc = 'sum').reset_index()
     df_wins.sort_values('Player had best WPM for this test', ascending = False,
                        inplace = True)
-    df_wins
 
     fig_wins = px.bar(df_wins, x = 'Player', 
            y = 'Player had best WPM for this test',
@@ -529,6 +544,11 @@ Had the Highest WPM', text_auto = '.0f',
     yaxis_title = 'Wins')
     fig_wins.write_html(f'{mp_visualizations_folder}{test_results_name}_\
 wins_by_player.html', include_plotlyjs = 'cdn')
+
+    df_wins.to_csv(
+    f'{mp_analyses_folder}{test_results_name}_wins_by_player.csv', 
+    index = False)
+
     # fig_wins
 
 
@@ -550,10 +570,22 @@ if category == 'mpv':
     fig_highest_wpm.write_html(
         f'{mp_visualizations_folder}{test_results_name}_\
 highest_WPM_by_player.html', include_plotlyjs = 'cdn')
+    df_highest_wpm.to_csv(
+    f'{mp_analyses_folder}{test_results_name}_highest_WPM_by_player.csv', 
+index = False)
     # fig_highest_wpm
 
 
 # In[17]:
+
+
+if category == 'mpv':
+    df.to_csv(
+    f'{mp_analyses_folder}{test_results_name}_test_results_updated.csv',
+    index = False)
+
+
+# In[18]:
 
 
 if category == 'mpv':
@@ -567,17 +599,25 @@ if category == 'mpv':
 
 # ### Analyzing test result data:
 
-# In[18]:
+# In[19]:
 
 
 if category == 'spv': 
     print("Analyzing single-player results.")
     df_tr = pd.read_csv('../Files/test_results.csv') # tr = 'test results'
 
-    # Converting start/end timestamps to DateTime values:
-
-    for col in ['Local_Test_Start_Time', 'Local_Test_End_Time']:
-        df_tr[col] = pd.to_datetime(df_tr[col])
+    # Creating UTC equivalents of each test's start and end time 
+    # using the Unix-time columns:
+    # (These equivalents will come in handy for at least some analyses,
+    # as I found that Pandas raised an error when I attempted to 
+    # analyze UTC-time columns that had multiple UTC offsets.
+    # (This situation may arise when your UTC time zone, like mine,
+    # uses daylight savings time.)
+    for col in ['Unix_Test_Start_Time', 'Unix_Test_End_Time']:
+        df_tr[col.replace('Unix', 'UTC')] = pd.to_datetime(
+    df_tr[col], unit='s')
+    # The above line is based in part on kasari's StackOverflow question
+    # at https://stackoverflow.com/q/65948018/13097194 .
     # Ensuring the tests are being displayed in chronological order:
     # (This may not always be the case, especially if the player imported
     # multiplayer results into his/her single-player file.)
@@ -585,7 +625,7 @@ if category == 'spv':
     # that we're about to create are accurate.)
 
     df_tr = df_tr.sort_values(
-        'Local_Test_Start_Time').reset_index(drop=True).copy()
+        'UTC_Test_Start_Time').reset_index(drop=True).copy()
     df_tr['Chronological test number'] = df_tr.index+1
     df_tr['Count'] = 1
     df_tr['Book'] = df_tr['Verse_Code'].str.split('_').str[0]
@@ -599,7 +639,7 @@ if category == 'spv':
 # 
 # (Note: I commented out this code following an update to the C++ code that allows session numbers to get calculated and stored within the original test_results.csv file. This code could become useful in the future if there's a need to display session numbers in chronological order, but for now, I'll comment it out.)
 
-# In[19]:
+# In[20]:
 
 
 # if category == 'spv': 
@@ -622,39 +662,41 @@ if category == 'spv':
 
 
 # Calculating various timing statistics that will prove useful for endurance-related analyses:
+# 
+# (In order to prevent confusion, I updated the following cell to specify that these columns store UTC time values rather than local ones.)
 
-# In[20]:
+# In[21]:
 
 
 if category == 'spv': 
     for time_type in ['Start', 'End']:
-        df_tr[f'{time_type} Year and Month'] = df_tr[
-        f'Local_Test_{time_type}_Time'].dt.year.astype('str') + '-' + df_tr[
-        f'Local_Test_{time_type}_Time'].dt.month.astype('str').str.zfill(2)
-        df_tr[f'{time_type} Date'] = df_tr[
-            f'Local_Test_{time_type}_Time'].dt.date
-        df_tr[f'{time_type} Hour'] = df_tr[
-            f'Local_Test_{time_type}_Time'].dt.hour
-        df_tr[f'{time_type} Minute'] = df_tr[
-            f'Local_Test_{time_type}_Time'].dt.minute
-        df_tr[f'{time_type} 30-Minute Block'] = np.where(
-            df_tr[f'{time_type} Minute'] >= 30, 2, 1)
+        df_tr[f'{time_type} Year and Month (UTC)'] = df_tr[
+        f'UTC_Test_{time_type}_Time'].dt.year.astype('str') + '-' + df_tr[
+        f'UTC_Test_{time_type}_Time'].dt.month.astype('str').str.zfill(2)
+        df_tr[f'{time_type} Date (UTC)'] = df_tr[
+            f'UTC_Test_{time_type}_Time'].dt.date
+        df_tr[f'{time_type} Hour (UTC)'] = df_tr[
+            f'UTC_Test_{time_type}_Time'].dt.hour
+        df_tr[f'{time_type} Minute (UTC)'] = df_tr[
+            f'UTC_Test_{time_type}_Time'].dt.minute
+        df_tr[f'{time_type} 30-Minute Block (UTC)'] = np.where(
+            df_tr[f'{time_type} Minute (UTC)'] >= 30, 2, 1)
         # Using floor division to determine the 15- and 10-minute blocks
         # into which each test falls:
-        df_tr[f'{time_type} 15-Minute Block'] = df_tr[
-            f'{time_type} Minute'] // 15 + 1
-        df_tr[f'{time_type} 10-Minute Block'] = df_tr[
-            f'{time_type} Minute'] // 10 + 1
+        df_tr[f'{time_type} 15-Minute Block (UTC)'] = df_tr[
+            f'{time_type} Minute (UTC)'] // 15 + 1
+        df_tr[f'{time_type} 10-Minute Block (UTC)'] = df_tr[
+            f'{time_type} Minute (UTC)'] // 10 + 1
 
 
     # Creating columns that will store unique starting hours and
     # 30/15/10-minute blocks:
-    df_tr['Unique Hour'] = df_tr['Start Date'].astype(
-        'str') + '_' + df_tr['Start Hour'].astype('str')
+    df_tr['Unique Hour (UTC)'] = df_tr['Start Date (UTC)'].astype(
+        'str') + '_' + df_tr['Start Hour (UTC)'].astype('str')
     for block in ['30', '15', '10']:
-        df_tr[f'Unique {block}-Minute Block'] = df_tr[
-            'Unique Hour'] + '_' + df_tr[
-            f'Start {block}-Minute Block'].astype('str')
+        df_tr[f'Unique {block}-Minute Block (UTC)'] = df_tr[
+            'Unique Hour (UTC)'] + '_' + df_tr[
+            f'Start {block}-Minute Block (UTC)'].astype('str')
 
 
     df_tr.head(5)
@@ -664,7 +706,7 @@ if category == 'spv':
 # 
 # (This information will be helpful for calculating endurance-based statistics.)
 
-# In[21]:
+# In[22]:
 
 
 if category == 'spv': 
@@ -678,7 +720,7 @@ if category == 'spv':
 # 
 # In the meantime, I've commented out this code so that it won't cause performance issues going forward.
 
-# In[22]:
+# In[23]:
 
 
 # df_tr_condensed = df_tr[['Unix_Test_Start_Time', 
@@ -687,7 +729,7 @@ if category == 'spv':
 # alternative engine options, but unfortunately, that wasn't the case.
 
 
-# In[23]:
+# In[24]:
 
 
 # for col_seconds_pair in col_seconds_pair_list:
@@ -703,7 +745,7 @@ if category == 'spv':
 
 # Note: I thought the following approach might actually be faster than the above option, as it only requires a single loop through the whole DataFrame. However, I found it to take a bit longer than the previous method.
 
-# In[24]:
+# In[25]:
 
 
 # for col in ['characters_typed_in_next_hour',
@@ -749,7 +791,7 @@ if category == 'spv':
 # 
 # Calculating rolling and cumulative means:
 
-# In[25]:
+# In[26]:
 
 
 if category == 'spv': 
@@ -762,7 +804,7 @@ if category == 'spv':
     ) / df_tr['Count'].cumsum()
 
 
-# In[26]:
+# In[27]:
 
 
 if category == 'spv': 
@@ -779,7 +821,7 @@ if category == 'spv':
         include_plotlyjs = 'cdn')
 
 
-# In[27]:
+# In[28]:
 
 
 if category == 'spv': 
@@ -789,67 +831,71 @@ if category == 'spv':
     df_fastest_tests.head()
 
 
-# In[28]:
+# In[29]:
 
 
 if category == 'spv': 
     fig_fastest_tests = px.bar(df_fastest_tests, x = 'Rank', y = 'WPM',
        color = 'Error_and_Backspace_Rate',
-       hover_data = ['Test_Number', 'Local_Test_Start_Time',
+       hover_data = ['Test_Number', 
+                     'Local_Test_Start_Time', 'UTC_Test_Start_Time',
                      'Verse_ID', 'Verse_Code'],
        text_auto = '.3f', title = 'Fastest Tests').update_layout(
 coloraxis_colorbar_title = 'Error and Backspace Rate')
     fig_fastest_tests.write_html(
         f'{sp_visualizations_folder}fastest_tests.html',
         include_plotlyjs = 'cdn')
-
-
-# In[29]:
-
-
-if category == 'spv': 
-    df_characters_and_avg_wpm_by_hour = df_tr.pivot_table(
-    index = 'Start Hour', values = ['Characters', 'WPM'], 
-    aggfunc = {'Characters':'sum',
-    'WPM':'mean'}).reset_index().rename(
-    columns = {'Start Hour':'Starting Hour'})
-    df_characters_and_avg_wpm_by_hour['Starting Hour'] = (
-    df_characters_and_avg_wpm_by_hour['Starting Hour'].astype('str'))
-    df_characters_and_avg_wpm_by_hour
+    df_fastest_tests.to_csv(f'{sp_analyses_folder}fastest_tests.csv', 
+    index = False)
 
 
 # In[30]:
 
 
 if category == 'spv': 
-    fig_chars_by_hour = px.bar(df_characters_and_avg_wpm_by_hour, 
-    x = 'Starting Hour', y = 'Characters', text_auto = ',.0f',
-    title = 'Characters Typed by Starting Hour')
-    fig_chars_by_hour.write_html(
-    f'{sp_visualizations_folder}chars_by_hour.html',
-    include_plotlyjs = 'cdn')
-    fig_chars_by_hour
+    df_characters_and_avg_wpm_by_hour = df_tr.pivot_table(
+    index = 'Start Hour (UTC)', values = ['Characters', 'WPM'], 
+    aggfunc = {'Characters':'sum',
+    'WPM':'mean'}).reset_index().rename(
+    columns = {'Start Hour (UTC)':'Starting Hour (UTC)'})
+    df_characters_and_avg_wpm_by_hour['Starting Hour (UTC)'] = (
+    df_characters_and_avg_wpm_by_hour['Starting Hour (UTC)'].astype('str'))
+    df_characters_and_avg_wpm_by_hour
 
 
 # In[31]:
 
 
 if category == 'spv': 
+    fig_chars_by_hour = px.bar(df_characters_and_avg_wpm_by_hour, 
+    x = 'Starting Hour (UTC)', y = 'Characters', text_auto = ',.0f',
+    title = 'Characters Typed by Starting Hour (UTC)')
+    fig_chars_by_hour.write_html(
+    f'{sp_visualizations_folder}chars_by_hour.html',
+    include_plotlyjs = 'cdn')
+
+
+# In[32]:
+
+
+if category == 'spv': 
     fig_wpm_by_hour = px.bar(df_characters_and_avg_wpm_by_hour, 
-    x = 'Starting Hour', y = 'WPM', text_auto = '.3f',
-    title = 'Mean WPM and Total Characters Typed by Starting Hour',
+    x = 'Starting Hour (UTC)', y = 'WPM', text_auto = '.3f',
+    title = 'Mean WPM and Total Characters Typed by Starting Hour (UTC)',
     color = 'Characters').update_layout(
 coloraxis_colorbar_title = 'Total<br>\
 Characters<br>Typed')
     fig_wpm_by_hour.write_html(
     f'{sp_visualizations_folder}WPM_by_hour.html',
     include_plotlyjs = 'cdn')
-    fig_wpm_by_hour
+    df_characters_and_avg_wpm_by_hour.to_csv(
+    f'{sp_analyses_folder}chars_and_avg_wpm_by_hour.csv', 
+    index = False)
 
 
 # ### Average WPM by Tag 1, Tag 2, and Tag 3 values:
 
-# In[32]:
+# In[33]:
 
 
 if category == 'spv': 
@@ -868,11 +914,15 @@ if category == 'spv':
                                    hover_data = 'Tests')
             fig_wpm_by_tag.write_html(f'{sp_visualizations_folder}mean_\
 WPM_by_{tag.lower()}.html', include_plotlyjs = 'cdn')
+            df_wpm_by_tag.to_csv(
+    f'{sp_analyses_folder}mean_\
+WPM_by_{tag.lower()}.csv', 
+    index = False)
 
 
 # ## Average WPM and Accuracy by Book:
 
-# In[33]:
+# In[34]:
 
 
 if category == 'spv': 
@@ -887,22 +937,21 @@ if category == 'spv':
 'Chronological test number':'Tests', 'Error_and_Backspace_Rate':'Error & Backspace Rate'})
 
 
-# In[34]:
+# In[35]:
 
 
 if category == 'spv':
     if len(df_wpm_by_book) > 0:
         fig_wpm_by_book = px.bar(df_wpm_by_book, x = 'Book', y = 'WPM',
         title = 'Books of the Bible With at Least 10 Test Results \
-    by Mean WPM', text_auto = '.3f',
+by Mean WPM', text_auto = '.3f',
         color = 'Tests', hover_data = ['Error & Backspace Rate'])
         fig_wpm_by_book.write_html(
         f'{sp_visualizations_folder}wpm_by_book.html', 
         include_plotlyjs = 'cdn')
 
 
-
-# In[35]:
+# In[36]:
 
 
 if category == 'spv':
@@ -910,11 +959,14 @@ if category == 'spv':
         fig_accuracy_by_book = px.bar(df_wpm_by_book, x = 'Book', 
         y = 'Error & Backspace Rate',
         title = 'Books of the Bible With at Least 10 Test Results<br> \
-    by Mean Error & Backspace Rate', text_auto = '.3f',
+by Mean Error & Backspace Rate', text_auto = '.3f',
         color = 'Tests', hover_data = ['WPM'])
         fig_accuracy_by_book.write_html(
         f'{sp_visualizations_folder}accuracy_by_book.html', 
         include_plotlyjs = 'cdn')
+        df_wpm_by_book.to_csv(
+        f'{sp_analyses_folder}wpm_and_accuracy_by_book.csv', 
+        index = False)
 
 
 
@@ -924,7 +976,7 @@ if category == 'spv':
 # 
 # (I commented out the following visualization code because it relies on a very inefficient set of code that I have also commented out.)
 
-# In[36]:
+# In[37]:
 
 
 # for col in [pair[0] for pair in col_seconds_pair_list]:
@@ -937,7 +989,8 @@ if category == 'spv':
 #     df_endurance, x = 'Rank', 
 #     y = col,
 #     title = 'Most ' + col,
-#     hover_data = ['Chronological test number', 'Local_Test_Start_Time'])
+#     hover_data = ['Chronological test number', 'Local_Test_Start_Time',
+# 'UTC_Test_Start_Time'])
 
 #     fig_endurance.write_html('Single_Player/Endurance_Top_50_rolling_'+col.replace(
 #         ' ', '_')+'.html', 
@@ -946,7 +999,7 @@ if category == 'spv':
 
 # #### Visualizing clock-based endurance statistics:
 
-# In[37]:
+# In[38]:
 
 
 if category == 'spv':
@@ -958,63 +1011,50 @@ if category == 'spv':
         # time categories don't match.
         # print(len(df_tr.query(f"`Start {time_category}` == `End {time_category}`")))
         df_endurance = df_tr.query(
-        f"`Start {time_category}` == `End {time_category}`").pivot_table(
-            index = f'Unique {time_category}', values = 'Characters', 
+        f"`Start {time_category} (UTC)` == `End {time_category} (UTC)`").pivot_table(
+            index = f'Unique {time_category} (UTC)', values = 'Characters', 
         aggfunc = 'sum').reset_index().sort_values(
         'Characters', ascending = False).reset_index(drop=True).head(50)
         df_endurance['Rank'] = (df_endurance.index + 1)
 
         fig_endurance = px.bar(
-        df_endurance, x = f'Unique {time_category}', 
+        df_endurance, x = f'Unique {time_category} (UTC)', 
         y = 'Characters', text_auto = ',.0f',
-        title = 'Most Characters Typed By ' + time_category,
+        title = 'Most Characters Typed By ' + time_category + ' (UTC)',
         hover_data = 'Rank')
 
         fig_endurance.write_html(
         f'{sp_visualizations_folder}endurance_top_50_\
 clock_'+time_category.replace(' ', '_').lower()+'.html', 
         include_plotlyjs = 'cdn')
-
-
-# In[38]:
-
-
-if category == 'spv':
-    df_yyyy_mm_stats = df_tr.query(
-        "`Start Year and Month` == `End Year and Month`").pivot_table(
-        index = 'Start Year and Month', values = ['Characters', 'WPM'], 
-        aggfunc = {'Characters':'sum', 'WPM':'mean'}).reset_index()
-    df_yyyy_mm_stats
+        df_endurance.to_csv(
+        f'{sp_analyses_folder}endurance_top_50_\
+clock_'+time_category.replace(' ', '_').lower()+'.csv', 
+        index = False)
 
 
 # In[39]:
 
 
 if category == 'spv':
-    fig_yyyy_mm_characters = px.line(
-        df_yyyy_mm_stats, x = 'Start Year and Month',
-                                    y = 'Characters')
-    fig_yyyy_mm_characters.update_layout(xaxis_type = 'category',
-    xaxis_title = None,
-    title = 'Characters Typed by Starting Year and Month')
-    fig_yyyy_mm_characters.write_html(
-    f'{sp_visualizations_folder}characters_\
-typed_by_year_and_month.html', include_plotlyjs = 'cdn')
+    df_yyyy_mm_stats = df_tr.query(
+        "`Start Year and Month (UTC)` == `End Year and Month (UTC)`").pivot_table(
+        index = 'Start Year and Month (UTC)', values = ['Characters', 'WPM'], 
+        aggfunc = {'Characters':'sum', 'WPM':'mean'}).reset_index()
 
 
 # In[40]:
 
 
 if category == 'spv':
-    fig_yyyy_mm_most_characters = px.bar(
-    df_yyyy_mm_stats.sort_values('Characters', ascending = False), 
-    x = 'Start Year and Month',
-    y = 'Characters', text_auto = ',.0f')
-    fig_yyyy_mm_most_characters.update_layout(xaxis_type = 'category',
+    fig_yyyy_mm_characters = px.line(
+        df_yyyy_mm_stats, x = 'Start Year and Month (UTC)',
+                                    y = 'Characters')
+    fig_yyyy_mm_characters.update_layout(xaxis_type = 'category',
     xaxis_title = None,
-    title = 'Months by Characters Typed')
-    fig_yyyy_mm_most_characters.write_html(
-    f'{sp_visualizations_folder}most_characters_\
+    title = 'Characters Typed by Starting Year and Month (UTC)')
+    fig_yyyy_mm_characters.write_html(
+    f'{sp_visualizations_folder}characters_\
 typed_by_year_and_month.html', include_plotlyjs = 'cdn')
 
 
@@ -1022,58 +1062,79 @@ typed_by_year_and_month.html', include_plotlyjs = 'cdn')
 
 
 if category == 'spv':
-    fig_yyyy_mm_wpm = px.line(
-        df_yyyy_mm_stats, x = 'Start Year and Month',
-                                    y = 'WPM')
-    fig_yyyy_mm_wpm.update_layout(xaxis_type = 'category',
+    fig_yyyy_mm_most_characters = px.bar(
+    df_yyyy_mm_stats.sort_values('Characters', ascending = False), 
+    x = 'Start Year and Month (UTC)',
+    y = 'Characters', text_auto = ',.0f')
+    fig_yyyy_mm_most_characters.update_layout(xaxis_type = 'category',
     xaxis_title = None,
-    title = 'Mean WPM by Starting Year and Month')
-    fig_yyyy_mm_wpm.write_html(f'{sp_visualizations_folder}avg_WPM_by_\
-year_and_month.html', include_plotlyjs = 'cdn')
+    title = 'Months by Characters Typed (UTC)')
+    fig_yyyy_mm_most_characters.write_html(
+    f'{sp_visualizations_folder}most_characters_\
+typed_by_year_and_month.html', include_plotlyjs = 'cdn')
 
-
-# Graphing keypresses by date (in both chronological and ranked order):
 
 # In[42]:
 
 
 if category == 'spv':
+    fig_yyyy_mm_wpm = px.line(
+        df_yyyy_mm_stats, x = 'Start Year and Month (UTC)',
+                                    y = 'WPM')
+    fig_yyyy_mm_wpm.update_layout(xaxis_type = 'category',
+    xaxis_title = None,
+    title = 'Mean WPM by Starting Year and Month (UTC)')
+    fig_yyyy_mm_wpm.write_html(f'{sp_visualizations_folder}avg_WPM_by_\
+year_and_month.html', include_plotlyjs = 'cdn')
+    df_yyyy_mm_stats.to_csv(
+    f'{sp_analyses_folder}chars_typed_and_wpm_by_\
+year_and_month.csv', index = False)
+
+
+# Graphing keypresses by date (in both chronological and ranked order):
+
+# In[43]:
+
+
+if category == 'spv':
     df_top_dates_by_keypresses = df_tr.query(
-        "`Start Date` == `End Date`").pivot_table(
-        index = 'Start Date', values = 'Characters', 
+        "`Start Date (UTC)` == `End Date (UTC)`").pivot_table(
+        index = 'Start Date (UTC)', values = 'Characters', 
         aggfunc = 'sum').reset_index().sort_values(
         'Characters', ascending = False).reset_index(drop=True)
     df_top_dates_by_keypresses['Rank'] = df_top_dates_by_keypresses.index + 1
     # Plotly will automatically arrange these dates in chronological order 
     # despite our having sorted the source DataFrame by characters.
     fig_keypresses_by_date = px.bar(df_top_dates_by_keypresses,
-                                         x = 'Start Date', y = 'Characters',
+                                         x = 'Start Date (UTC)', y = 'Characters',
                                     text_auto = ',.0f',
-                                  title = 'Characters typed by date',
+                                  title = 'Characters typed by date (UTC)',
                                    hover_data = ['Rank'])
     fig_keypresses_by_date.write_html(f'{sp_visualizations_folder}keypresses\
 _typed_by_date.html', include_plotlyjs='cdn')
 
 
-# In[43]:
+# In[44]:
 
 
 if category == 'spv':
     fig_top_dates_by_keypresses = px.bar(
         df_top_dates_by_keypresses.head(50),
-           x = 'Start Date', y = 'Characters',
+           x = 'Start Date (UTC)', y = 'Characters',
         text_auto = ',.0f',
-           title = 'Dates with the most characters typed', 
+           title = 'Dates with the most characters typed (UTC)', 
            hover_data = ['Rank']).update_layout(
         xaxis_type = 'category')
     fig_top_dates_by_keypresses.write_html(
         f'{sp_visualizations_folder}top_dates_by_keypresses.html', 
         include_plotlyjs='cdn')
+    df_top_dates_by_keypresses.to_csv(
+    f'{sp_analyses_folder}top_dates_by_keypresses.csv', index = False)
 
 
 # ### Calculating mean WPM by within-session test numbers:
 
-# In[44]:
+# In[45]:
 
 
 if category == 'spv':
@@ -1087,7 +1148,7 @@ if category == 'spv':
     df_mean_wpm_by_within_session_test_number
 
 
-# In[45]:
+# In[46]:
 
 
 if category == 'spv':
@@ -1101,10 +1162,12 @@ if category == 'spv':
         f'{sp_visualizations_folder}mean_WPM_by_within_\
 session_test_number.html', 
         include_plotlyjs='cdn')
-    #fig_mean_wpm_by_within_session_test_number
+    df_mean_wpm_by_within_session_test_number.to_csv(
+        f'{sp_analyses_folder}mean_WPM_by_within_session_test_number.csv', 
+index = False)
 
 
-# In[46]:
+# In[47]:
 
 
 if category == 'spv':
@@ -1121,20 +1184,9 @@ Within-Session Test Number").update_traces(
         f'{sp_visualizations_folder}WPM_by_within_session_\
 test_number.html', 
         include_plotlyjs='cdn')
-    # fig_wpm_by_session_num_comparison
 
 
 # ### Accuracy analyses:
-
-# In[47]:
-
-
-if category == 'spv':
-    print("Analyzing accuracy data.")
-    df_wpm_by_error_rate = df_tr.pivot_table(
-        index = 'Error_and_Backspace_Rate', 
-        values = 'WPM', aggfunc = 'mean').reset_index()
-
 
 # #### Assigning results to accuracy bins:
 # 
@@ -1144,6 +1196,7 @@ if category == 'spv':
 
 
 if category == 'spv':
+    print("Analyzing accuracy data.")
     df_tr['Error/backspace rate bin'] = pd.qcut(
         df_tr['Error_and_Backspace_Rate'], 10, duplicates = 'drop').astype(
     'str')
@@ -1197,6 +1250,9 @@ if category == 'spv':
     fig_mean_wpm_by_error_rate.write_html(
     f'{sp_visualizations_folder}mean_WPM_by_accuracy_bin.html', 
     include_plotlyjs = 'cdn')
+    df_mean_wpm_by_accuracy_bin.to_csv(
+    f'{sp_analyses_folder}mean_WPM_by_accuracy_bin.csv', 
+    index = False)
 
 
 # Calculating rolling and cumulative accuracy results:
@@ -1288,7 +1344,10 @@ by Within-Session Test Number',
         f'{sp_visualizations_folder}mean_error_and_backspace_rate_\
 by_within_session_test_number.html', 
         include_plotlyjs='cdn')
-    #fig_mean_accuracy_by_within_session_test_number
+    df_mean_accuracy_by_within_session_test_number.to_csv(
+f'{sp_analyses_folder}mean_error_and_backspace_rate_\
+by_within_session_test_number.csv', 
+    index = False)
 
 
 # ### Analyzing word-level results:
@@ -1347,6 +1406,8 @@ Typed at Least 10 Times')
     fig_lowest_word_level_wpm.write_html(
     f'{sp_visualizations_folder}words_with_lowest_WPM.html', 
     include_plotlyjs = 'cdn')
+    df_mean_wpm_by_word.to_csv(f'{sp_analyses_folder}words_by_WPM.csv', 
+    index = False)
 
 
 # Analyzing word-level accuracy data:
@@ -1419,6 +1480,8 @@ if category == 'spv':
     fig_most_frequent_words.write_html(
     f'{sp_visualizations_folder}words_typed_most_frequently.html', 
     include_plotlyjs = 'cdn')
+    df_wr_acc_wpm.to_csv(f'{sp_analyses_folder}word_level_\
+accuracy_and_wpm_data.csv', index = False)
 
 
 # ## Overall progress analyses:
@@ -1484,6 +1547,8 @@ Characters Typed', text_auto = '.0f', barmode = 'overlay',
     fig_progress.write_html(
     f'{sp_visualizations_folder}progress_nominal.html', 
     include_plotlyjs = 'cdn')
+    df_progress.to_csv(f'{sp_analyses_folder}progress_by_book_and_\
+overall.csv', index = False)
 
 
 # In[69]:
@@ -1517,7 +1582,17 @@ if category == 'spv':
     include_plotlyjs = 'cdn')
 
 
+# ## Saving the updated copy of df_tr (which contains a number of columns not found in the original test_results.csv dataset to the Analyses folder):
+
 # In[71]:
+
+
+if category == 'spv':
+    df_tr.to_csv(f'{sp_analyses_folder}test_results_updated.csv', 
+    index = False)
+
+
+# In[72]:
 
 
 if category == 'spv':

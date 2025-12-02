@@ -31,8 +31,8 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 # and the CMake documentation at https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-To-Write-Platform-Checks .
 
 if(UNIX AND NOT APPLE)
-add_subdirectory(/home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/third_party_libraries/csv-parser /home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/third_party_libraries/csv-parser_subdiroutput)
-add_subdirectory(/home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/third_party_libraries/cpp-terminal /home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/third_party_libraries/cpp-terminal_subdiroutput)
+add_subdirectory(/home/kjb3/D1V1/kjb3docs/Programming/CPP/third_party_libraries/csv-parser /home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/third_party_libraries/csv-parser_subdiroutput)
+add_subdirectory(/home/kjb3/D1V1/kjb3docs/Programming/CPP/third_party_libraries/cpp-terminal /home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/third_party_libraries/cpp-terminal_subdiroutput)
 # Note RE subdirectory output: https://stackoverflow.com/a/35260629/13097194
 endif()
 

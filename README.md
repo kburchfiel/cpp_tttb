@@ -16,7 +16,7 @@ Released under the MIT License
 Latest versions:
 
 C++ code: 1.03
-Complementary Python code: 1.02
+Complementary Python code: 1.03
 
 ## Introduction
 

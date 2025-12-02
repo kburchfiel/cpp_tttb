@@ -253,6 +253,9 @@ os.mkdir(release_folder + 'Files/MP_Word_Result_Files_To_Combine/')
 os.mkdir(release_folder + 'Visualizations/')
 os.mkdir(release_folder + 'Visualizations/Multiplayer')
 os.mkdir(release_folder + 'Visualizations/Single_Player')
+os.mkdir(release_folder + 'Analyses/')
+os.mkdir(release_folder + 'Analyses/Multiplayer')
+os.mkdir(release_folder + 'Analyses/Single_Player')
 
 
 # Making sure that the headers in our 'headers only' file match the ones I've been using in my own gameplay sessions: (sometimes I only update the latter rather than the former.)
