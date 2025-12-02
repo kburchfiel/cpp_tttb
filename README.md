@@ -11,7 +11,7 @@ Released under the MIT License
 
 [Link to gameplay demo video](https://youtu.be/ZrADleJG3SA)
 
-![](Screenshots/Genesis_1_new_menu.png)
+![](Screenshots/John_1_1_Completed.png)
 
 Latest versions:
 
@@ -160,9 +160,7 @@ Once you correct the typo (e.g. by hitting backspace), the text will turn green 
 
 **Important**: To clear out an entire mistyped word, press Alt + Backspace on Linux and Windows or Fn + Delete on OSX. (I would have liked to make Ctrl + Backspace an option for Linux and Windows, and Command + Delete an option for OSX, but I had trouble implementing these options using the cpp-terminal library; it's possible that they might be added in in a future update.)
 
-After you finish the verse, you'll get feedback on how long it took you type the text; your WPM (defined as ((characters in the verse) / (time, in seconds, you needed to complete the test)) * 60 / 5; and your error rates. 
-
-![](Screenshots/John_1_1_Completed.png)
+After you finish the verse, you'll get feedback on how long it took you type the text; your WPM (defined as ((characters in the verse) / (time, in seconds, you needed to complete the test)) * 60 / 5; and your error rates. (See the very first image within this Readme for an example of what this will look like--though the exact output will vary based on how many tests you have completed.)
 
 **Understanding error rates**
 
@@ -170,7 +168,7 @@ TTTB keeps track of two error rates for each verse: one that counts backspaces (
 
 Once you're ready to quit out of the game, press 'e'. Your results will then be saved to .csv files.
 
-![](Screenshots/Exiting_Single_Player_Game_Part_1.png)
+![](Screenshots/Finishing_Game.png)
 
 You'll then have the opportunity to call a Python script that will create interactive visualizations of these results. This shouldn't take terribly long, but if you're in a rush and/or have completed massive numbers of tests, you may not want to call it right now. (You can always call it later; since the script retrieves its data from the .csv files in the Files/ folder, which *always* get updated following a successful exit from single-player mode, declining to visualize your results at this time won't cause any data to get lost.)
 

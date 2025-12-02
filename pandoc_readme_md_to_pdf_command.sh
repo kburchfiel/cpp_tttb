@@ -1,4 +1,4 @@
-cd '/home/kjb3/D1V1/Documents/!Dell64docs/Programming/CPP/cpp_tttb'
+cd '/home/kjb3/D1V1/kjb3docs/Programming/CPP/cpp_tttb'
 pandoc README.md -f markdown -t pdf -s -o README.pdf -V colorlinks=true -V  geometry:paperwidth=8.5in -V geometry:paperheight=11in -V geometry:margin=1in
 
 # (This snippet, which creates a PDF version of the README.md file (while also preserving images), was based on the following sources:

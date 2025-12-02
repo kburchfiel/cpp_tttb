@@ -1,5 +1,5 @@
 Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,Tests,Best_WPM
-1,OT,Genesis,1,1,1,Genesis_1:1,"In the beginning, God created heaven and earth.",47,28,200.543770
+1,OT,Genesis,1,1,1,Genesis_1:1,"In the beginning, God created heaven and earth.",47,29,200.543770
 2,OT,Genesis,1,1,2,Genesis_1:2,"But the earth was empty and unoccupied, and darknesses were over the face of the abyss; and so the Spirit of God was brought over the waters.",141,7,161.088381
 3,OT,Genesis,1,1,3,Genesis_1:3,"And God said, ""Let there be light."" And light became.",53,7,157.810945
 4,OT,Genesis,1,1,4,Genesis_1:4,"And God saw the light, that it was good; and so he divided the light from the darknesses.",89,5,162.812696
@@ -1904,17 +1904,17 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 1903,OT,Exodus,2,14,16,Exodus_14:16,"Now, lift up your staff, and extend your hand over the sea and divide it, so that the sons of Israel may walk through the midst of the sea on dry ground.",153,1,144.997058
 1904,OT,Exodus,2,14,17,Exodus_14:17,"Then I will harden the heart of the Egyptians, so as to pursue you. And I will be glorified in Pharaoh, and in all his army, and in his chariots, and in his horsemen.",166,1,149.054158
 1905,OT,Exodus,2,14,18,Exodus_14:18,"And the Egyptians will know that I am the Lord, when I will be glorified in Pharaoh, and in his chariots, as well as in his horsemen.""",134,1,124.484828
-1906,OT,Exodus,2,14,19,Exodus_14:19,"And the Angel of God, who preceded the camp of Israel, lifting himself up, went behind them. And the pillar of cloud, together with him, left the front for the rear ",165,0,0.000000
-1907,OT,Exodus,2,14,20,Exodus_14:20,"and stood between the camp of the Egyptians and the camp of Israel. And it was a dark cloud, yet it illuminated the night, so that they could not succeed at approaching one another at any time all that night.",208,0,0.000000
-1908,OT,Exodus,2,14,21,Exodus_14:21,"And when Moses had extended his hand over the sea, the Lord took it away by an intense burning wind, blowing throughout the night, and he turned it into dry ground. And the water was divided.",191,0,0.000000
-1909,OT,Exodus,2,14,22,Exodus_14:22,And the sons of Israel went in through the midst of the dried sea. For the water was like a wall at their right hand and at their left hand.,140,0,0.000000
-1910,OT,Exodus,2,14,23,Exodus_14:23,"And the Egyptians, pursuing them, went in after them, along with all of the horses of Pharaoh, his chariots and horsemen, through the midst of the sea.",151,0,0.000000
-1911,OT,Exodus,2,14,24,Exodus_14:24,"And now the morning watch had arrived, and behold, the Lord, looking down upon the camp of the Egyptians through the pillar of fire and of cloud, put to death their army.",170,0,0.000000
-1912,OT,Exodus,2,14,25,Exodus_14:25,"And he overturned the wheels of the chariots, and they were carried into the deep. Therefore, the Egyptians said: ""Let us flee from Israel. For the Lord fights on their behalf against us.""",188,0,0.000000
-1913,OT,Exodus,2,14,26,Exodus_14:26,"And the Lord said to Moses: ""Extend your hand over the sea, so that the waters may return on the Egyptians, over their chariots and horsemen.""",142,0,0.000000
-1914,OT,Exodus,2,14,27,Exodus_14:27,"And when Moses had extended his hand opposite the sea, it was returned, at first light, to its former place. And the fleeing Egyptians met with the waters, and the Lord immersed them in the midst of the waves.",209,0,0.000000
-1915,OT,Exodus,2,14,28,Exodus_14:28,"And the waters were returned, and they covered the chariots and horsemen of the entire army of Pharaoh, who, in following, had entered into the sea. And not so much as one of them was left alive.",195,0,0.000000
-1916,OT,Exodus,2,14,29,Exodus_14:29,"But the sons of Israel continued directly through the midst of the dried sea, and the waters were to them like a wall on the right and on the left.",147,0,0.000000
+1906,OT,Exodus,2,14,19,Exodus_14:19,"And the Angel of God, who preceded the camp of Israel, lifting himself up, went behind them. And the pillar of cloud, together with him, left the front for the rear ",165,1,111.754279
+1907,OT,Exodus,2,14,20,Exodus_14:20,"and stood between the camp of the Egyptians and the camp of Israel. And it was a dark cloud, yet it illuminated the night, so that they could not succeed at approaching one another at any time all that night.",208,1,163.013641
+1908,OT,Exodus,2,14,21,Exodus_14:21,"And when Moses had extended his hand over the sea, the Lord took it away by an intense burning wind, blowing throughout the night, and he turned it into dry ground. And the water was divided.",191,1,141.723491
+1909,OT,Exodus,2,14,22,Exodus_14:22,And the sons of Israel went in through the midst of the dried sea. For the water was like a wall at their right hand and at their left hand.,140,1,126.392495
+1910,OT,Exodus,2,14,23,Exodus_14:23,"And the Egyptians, pursuing them, went in after them, along with all of the horses of Pharaoh, his chariots and horsemen, through the midst of the sea.",151,1,154.571289
+1911,OT,Exodus,2,14,24,Exodus_14:24,"And now the morning watch had arrived, and behold, the Lord, looking down upon the camp of the Egyptians through the pillar of fire and of cloud, put to death their army.",170,1,143.321077
+1912,OT,Exodus,2,14,25,Exodus_14:25,"And he overturned the wheels of the chariots, and they were carried into the deep. Therefore, the Egyptians said: ""Let us flee from Israel. For the Lord fights on their behalf against us.""",188,1,115.492232
+1913,OT,Exodus,2,14,26,Exodus_14:26,"And the Lord said to Moses: ""Extend your hand over the sea, so that the waters may return on the Egyptians, over their chariots and horsemen.""",142,1,128.264710
+1914,OT,Exodus,2,14,27,Exodus_14:27,"And when Moses had extended his hand opposite the sea, it was returned, at first light, to its former place. And the fleeing Egyptians met with the waters, and the Lord immersed them in the midst of the waves.",209,1,137.153527
+1915,OT,Exodus,2,14,28,Exodus_14:28,"And the waters were returned, and they covered the chariots and horsemen of the entire army of Pharaoh, who, in following, had entered into the sea. And not so much as one of them was left alive.",195,1,128.909103
+1916,OT,Exodus,2,14,29,Exodus_14:29,"But the sons of Israel continued directly through the midst of the dried sea, and the waters were to them like a wall on the right and on the left.",147,1,142.978550
 1917,OT,Exodus,2,14,30,Exodus_14:30,And so the Lord freed Israel on that day from the hand of the Egyptians.,72,0,0.000000
 1918,OT,Exodus,2,14,31,Exodus_14:31,"And they saw the Egyptians dead on the shore of the sea and the great hand that the Lord had exercised against them. And the people feared the Lord, and they believed in the Lord and in Moses his servant.",204,0,0.000000
 1919,OT,Exodus,2,15,1,Exodus_15:1,"Then Moses and the sons of Israel sang this song to the Lord, and they said: ""Let us sing to the Lord, for he has been gloriously magnified: the horse and the rider he has cast into the sea.",190,0,0.000000
@@ -30784,7 +30784,7 @@ Verse_ID,OT_NT,Book,Book_Num,Chapter_Num,Verse_Num,Verse_Code,Verse,Characters,T
 30783,NT,Luke,49,24,51,Luke_24:51,"And it happened that, while he was blessing them, he withdrew from them, and he was carried up into heaven.",107,0,0.000000
 30784,NT,Luke,49,24,52,Luke_24:52,"And worshiping, they returned to Jerusalem with great joy.",58,0,0.000000
 30785,NT,Luke,49,24,53,Luke_24:53,"And they were always in the temple, praising and blessing God. Amen.",68,0,0.000000
-30786,NT,John,50,1,1,John_1:1,"In the beginning was the Word, and the Word was with God, and God was the Word.",79,13,185.435994
+30786,NT,John,50,1,1,John_1:1,"In the beginning was the Word, and the Word was with God, and God was the Word.",79,15,185.435994
 30787,NT,John,50,1,2,John_1:2,He was with God in the beginning.,33,11,183.824673
 30788,NT,John,50,1,3,John_1:3,"All things were made through Him, and nothing that was made was made without Him.",81,7,170.405900
 30789,NT,John,50,1,4,John_1:4,"Life was in Him, and Life was the light of men.",47,7,174.257907
