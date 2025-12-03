@@ -13,7 +13,7 @@ Released under the MIT License
 
 ![](Screenshots/John_1_1_Completed.png)
 
-Latest version: 2.0.0
+Latest version: 2.0.1
 
 (Note: the in-game files will state that the C++ and complementary Python files are each version 1.03; however, those numbers refer to an earlier versioning system.)
 
