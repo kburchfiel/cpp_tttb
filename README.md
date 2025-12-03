@@ -13,10 +13,9 @@ Released under the MIT License
 
 ![](Screenshots/John_1_1_Completed.png)
 
-Latest versions:
+Latest version: 2.0.0
 
-C++ code: 1.03
-Complementary Python code: 1.03
+(Note: the in-game files will state that the C++ and complementary Python files are each version 1.03; however, those numbers refer to an earlier versioning system.)
 
 ## Introduction
 
@@ -31,6 +30,8 @@ Make sure to download both the zipped folder for your operating system *and* the
 (If multiple people will be playing TTTB's single-player mode on your computer, I recommend creating a separate copy of the game for each of them. This will make it much easier for each player to keep track of his or her progress.)
 
 Because TTTB is released under the MIT license, you are free to modify its underlying C++ and Python code, then share your revisions with others (even under a proprietary license). In this case, you'll want to download and compile the source code rather than use these underlying binaries. See 'Compilation instructions' below for more details.
+
+(However, the Bible verses found within this repository are all available within the public domain. See the LICENSE file for more details.)
 
 **Mac/OSX users: Make sure to carefully review 'Starting the game' section below for important details on successfully launching TTTB.**
 
