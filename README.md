@@ -277,13 +277,26 @@ Here are some sample PNG screenshots: (Unlike the original HTML copies, these ar
 ![](Screenshots/Mean_WPM_by_Player_and_Round.png)
 
 
+### Updating your CPDB_for_TTTB.csv file to incorporate revised copies of verses while still retaining (at least some) of your test results
+
+There are two main reasons why you might need to update the verses within your CPDB_for_TTTB.csv file. First, even months after first releasing TTTB, I'm finding certain issues with my copies of the verses (e.g. trailing whitespaces, HTML tags, etc.) that need to be fixed. (The verses were originally meant for HTML display, so I needed to make a number of revisions so that they would be suitable for a typing test game. It turns out that my initial set of revisions was was sufficient!)
+
+Second, Ronald L. Conte Jr., who translated and edited the Catholic Public Domain Bible, has been making [updates to the verses](https://sacredbible.org/errata.htm) here and there. You may wish to update your own copy of the Bible verses following these edits.
+
+Because I've had to update my own CPDB_for_TTTB.csv file a few times, I created a Jupyter Notebook (cpdb_version_updater.ipynb, available within the CPDB_Version_Updater/ folder) to help simplify this process. Make sure to read the instructions contained at the top of the notebook before running it--and note that there's a decent amount of manual work needed to replace older verses with newer ones. (This is by design, since you wouldn't want to accidentally lose valuable test data!) Also note that the script will *remove* any test and best-WPM data within this file for verses that don't match their previous versions, since I think it's best for that data to always reflect the most recent verse in this file. However, you could modify the notebook to keep those results intact if you so choose.
+
+In order to complete this process, of course, you'll need a newer copy of the CPDB_for_TTTB.csv file. One option is to retrieve it from CPDB_for_TTTB.csv [within this GitHub folder](https://github.com/kburchfiel/cpp_tttb/tree/main/Catholic_Public_Domain_Bible); the 'Last commit date' column will let you determine how recently this file has been updated.
+
+Another option would be to use a Python notebook to download the corresponding Bible files from sacredbible.org, then reformat them for use within TTTB. (This is the process that I myself use to update the CPDB_for_TTTB.csv file.) However, I've excluded it from the repository because I didn't want to place unnecessary bandwidth burdens on sacredbible.org.
+
+However, if you've noticed a recent change (i.e. one [after 2025-02-26](https://sacredbible.org/errata.htm), when the Catholic Public Domain Version was last updated as of 2025-12-02), let me know by reporting an issue or sending a message (see below). I'll then be happy to rerun my corresponding notebook and update the CPDB_for_TTTB.csv file in this GitHub repository's Catholic_Public_Domain_Bible folder.
 
 
 ### Reporting issues
 
 I have completed over 1,400 tests on Type Through the Bible so far, along with quite a few multiplayer rounds. However, it's still possible (and perhaps, for a hobby project like this, likely) that bugs, typos, and other issues will appear.
 
-Please make me aware of any issues, large or small, by posting them within https://github.com/kburchfiel/cpp_tttb/issues . If you don't have a GitHub account, you can also email me at kburchfiel3@gmail.com . (Please include 'TTTB' in your subject so that I know your message is related to this game.)
+Please make me aware of any issues, large or small, by posting them within https://github.com/kburchfiel/cpp_tttb/issues . If you don't have a GitHub account, you can also email me at dev@kburchfiel.com . (Please include 'TTTB' in your subject so that I know your message is related to this game.)
 
 You are also welcome to use these channels to submit feature requests and improvements; however, since the time I have to work on this project is limited, I may not be able to implement your idea.
 
